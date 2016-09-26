@@ -1,4 +1,4 @@
-[![Heroku](https://heroku-badge.herokuapp.com/?app=findyourprocorp)]
+[![Heroku](http://heroku-badge.herokuapp.com/?app=fypcorp&root=index.jsf)](https://fypcorp.herokuapp.com)
 # Atividade de D.S.Corporativos
 ## Grupo: FindYourPro
 ## Componentes
