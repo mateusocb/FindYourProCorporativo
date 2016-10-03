@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>br.edu.ifrn</groupId>
-    <artifactId>conta</artifactId>
+    <artifactId>findyourpro</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -21,7 +21,7 @@
         <duplicate.ignoredClassPattern>javax.persistence.(SynchronizationType|Persistence(Context|ContextType|Contexts|Property|Unit|Units))</duplicate.ignoredClassPattern>
         <duplicate.ignoredResourcePattern>(changelog.txt|application.yml)</duplicate.ignoredResourcePattern>
         <pmd.excludeFromFailureFile>${check.dir}/pmd/pmd-exclude.properties</pmd.excludeFromFailureFile>        
-        <checkstyle.excludes>br/edu/ifrn/conta/dominio/Q*</checkstyle.excludes>
+        <checkstyle.excludes>br/edu/ifrn/findyourpro/dominio/Q*</checkstyle.excludes>
         <cobertura.totalLineRate>33</cobertura.totalLineRate>
         <cobertura.packageLineRate>33</cobertura.packageLineRate>
         <cobertura.lineRate>0</cobertura.lineRate>
@@ -165,17 +165,17 @@
                 <configuration>
                     <instrumentation>
                         <ignores>
-                            <ignore>br.edu.ifrn.conta.dominio.Q*</ignore>
+                            <ignore>br.edu.ifrn.findyourpro.dominio.Q*</ignore>
                         </ignores>
                         <excludes>
-                            <exclude>br/edu/ifrn/conta/dominio/QCategoria.class</exclude>
-                            <exclude>br/edu/ifrn/conta/dominio/QConta.class</exclude>
-                            <exclude>br/edu/ifrn/conta/dominio/QContaCredito.class</exclude>
-                            <exclude>br/edu/ifrn/conta/dominio/QContaDebito.class</exclude>
-                            <exclude>br/edu/ifrn/conta/dominio/QContaPatrimonio.class</exclude>
-                            <exclude>br/edu/ifrn/conta/dominio/QDono.class</exclude>
-                            <exclude>br/edu/ifrn/conta/dominio/QLancamento.class</exclude>
-                            <exclude>br/edu/ifrn/conta/dominio/QValorInicialDoDonoNaContaPatrimonio.class</exclude>
+                            <exclude>br/edu/ifrn/findyourpro/dominio/QCategoria.class</exclude>
+                            <exclude>br/edu/ifrn/findyourpro/dominio/QConta.class</exclude>
+                            <exclude>br/edu/ifrn/findyourpro/dominio/QContaCredito.class</exclude>
+                            <exclude>br/edu/ifrn/findyourpro/dominio/QContaDebito.class</exclude>
+                            <exclude>br/edu/ifrn/findyourpro/dominio/QContaPatrimonio.class</exclude>
+                            <exclude>br/edu/ifrn/findyourpro/dominio/QDono.class</exclude>
+                            <exclude>br/edu/ifrn/findyourpro/dominio/QLancamento.class</exclude>
+                            <exclude>br/edu/ifrn/findyourpro/dominio/QValorInicialDoDonoNaContaPatrimonio.class</exclude>
                         </excludes>
                     </instrumentation>
                 </configuration>            
@@ -223,36 +223,54 @@
         </profile>
     </profiles>
 
-    <name>conta</name>
-    <description>Conta do Desenvolvimento de Sistemas Corporativos</description>
-    <url>https://github.com/persapiens/conta</url>
+    <name>findyourpro</name>
+    <description>FindYourPro</description>
+    <url>https://github.com/mateusocb/findyourprocorp</url>
     <inceptionYear>2016</inceptionYear>
 
     <!-- Issue Managment -->
     <issueManagement>
         <system>Github</system>
-        <url>https://github.com/persapiens/conta/issues</url>
+        <url>https://github.com/mateusocb/findyourprocorp/issues</url>
     </issueManagement>
 
     <!-- SCM -->
     <scm>
-        <connection>scm:git:https://github.com/persapiens/conta.git</connection>
-        <developerConnection>scm:git:https://github.com/persapiens/conta.git</developerConnection>
-        <url>scm:git:https://github.com/persapiens/conta.git</url>
+        <connection>scm:git:https://github.com/mateusocb/findyourprocorp.git</connection>
+        <developerConnection>scm:git:https://github.com/mateusocb/findyourprocorp.git</developerConnection>
+        <url>scm:git:https://github.com/mateusocb/findyourprocorp.git</url>
         <tag>HEAD</tag>
     </scm>
 
     <!-- Organization -->
     <organization>
-        <name>Persapiens</name>
-        <url>https://github.com/persapiens</url>
+        <name>FindYourPro</name>
+        <url>https://github.com/mateusocb</url>
     </organization>
     
     <developers>
         <developer>
-            <id>persapiens</id>
-            <name>Marcelo Romulo Fernandes</name>
-            <email>persapiens@gmail.com</email>
+            <id>mateusocb</id>
+            <name>Mateus Oliveira</name>
+            <email>mateusocb@gmail.com</email>
+            <timezone>-3</timezone>
+        </developer>
+        <developer>
+            <id>Thiagodemas</id>
+            <name>Thiago Demas</name>
+            <email>thiago.demas@gmail.com</email>
+            <timezone>-3</timezone>
+        </developer>
+        <developer>
+            <id>w3nd3ll</id>
+            <name>Wendell Holden</name>
+            <email>wendellholden@hotmail.com</email>
+            <timezone>-3</timezone>
+        </developer>
+        <developer>
+            <id>johann</id>
+            <name>Johann Guerra</name>
+            <email>johann.guera200@gmail.com</email>
             <timezone>-3</timezone>
         </developer>
     </developers>
