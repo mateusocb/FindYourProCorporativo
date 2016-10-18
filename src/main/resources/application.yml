@@ -24,9 +24,9 @@ server:
   port: 7070
 endpoints:
   shutdown:
-  enabled: true
-  path: /sair
-  security:
-    user:
-      name: findyourpro
-      password: fyp123
+    enabled: true
+    path: /sair
+security:
+  user:
+    name: findyourpro
+    password: fyp123
