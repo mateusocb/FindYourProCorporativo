@@ -32,10 +32,10 @@ public class Localizacao implements Comparable<Localizacao> {
     public int compareTo(Localizacao o) {
         int result = this.cep.compareTo(o.cep);
         if (result == 0) {
-            return this.latitude.compareTo(o.latitude);
+            result=this.latitude.compareTo(o.latitude);
         }
         if (result == 0) {
-            return this.longitude.compareTo(o.longitude);
+            result=this.longitude.compareTo(o.longitude);
         }
         return result;
     }
