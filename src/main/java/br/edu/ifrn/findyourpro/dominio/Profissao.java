@@ -5,21 +5,21 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
+/*import lombok.NonNull;*/
 import lombok.Setter;
 import lombok.ToString;
 
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode(exclude = "id")
+@EqualsAndHashCode()
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Profissao implements Comparable<Profissao> {
-    
+
     private String tipo;
-    
-      @Override
+
+    @Override
     public int compareTo(Profissao o) {
         return this.tipo.compareTo(o.tipo);
     }
