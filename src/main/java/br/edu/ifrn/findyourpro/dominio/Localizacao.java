@@ -1,7 +1,5 @@
 package br.edu.ifrn.findyourpro.dominio;
-package br.edu.ifrn.findyourpro.dominio;
 
-import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,7 +31,7 @@ import lombok.ToString;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @SequenceGenerator(sequenceName = "seq_conta", name = "ID_SEQUENCE", allocationSize = 1)
-public class Localizacao implements Serializable, Comparable<Usuario> {
+public class Localizacao implements Comparable<Usuario> {
     private static final long serialVersionUID = 1L;
     
     @Id
