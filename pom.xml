@@ -165,17 +165,15 @@
                 <configuration>
                     <instrumentation>
                         <ignores>
-                            <ignore>br.edu.ifrn.findyourpro.dominio.Q*</ignore>
+                            <ignore>br.edu.ifrn.findyourpro.dominio.*</ignore>
                         </ignores>
                         <excludes>
-                            <exclude>br/edu/ifrn/findyourpro/dominio/QCategoria.class</exclude>
-                            <exclude>br/edu/ifrn/findyourpro/dominio/QConta.class</exclude>
-                            <exclude>br/edu/ifrn/findyourpro/dominio/QContaCredito.class</exclude>
-                            <exclude>br/edu/ifrn/findyourpro/dominio/QContaDebito.class</exclude>
-                            <exclude>br/edu/ifrn/findyourpro/dominio/QContaPatrimonio.class</exclude>
-                            <exclude>br/edu/ifrn/findyourpro/dominio/QDono.class</exclude>
-                            <exclude>br/edu/ifrn/findyourpro/dominio/QLancamento.class</exclude>
-                            <exclude>br/edu/ifrn/findyourpro/dominio/QValorInicialDoDonoNaContaPatrimonio.class</exclude>
+                            <exclude>br/edu/ifrn/findyourpro/dominio/Autonomo.class</exclude>
+                            <exclude>br/edu/ifrn/findyourpro/dominio/Avaliacao.class</exclude>
+                            <exclude>br/edu/ifrn/findyourpro/dominio/Instituicao.class</exclude>
+                            <exclude>br/edu/ifrn/findyourpro/dominio/Localizacao.class</exclude>
+                            <exclude>br/edu/ifrn/findyourpro/dominio/Profissao.class</exclude>
+                            <exclude>br/edu/ifrn/findyourpro/dominio/Usuario.class</exclude>                        
                         </excludes>
                     </instrumentation>
                 </configuration>            
