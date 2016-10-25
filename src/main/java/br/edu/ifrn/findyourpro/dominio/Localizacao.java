@@ -15,11 +15,8 @@ import lombok.ToString;
 @EqualsAndHashCode(exclude = "id")
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 
-public class Localizacao implements Comparable<Usuario> {
-    private static final long serialVersionUID = 1L;
+public class Localizacao implements Comparable<Localizacao> {
         
     private String numero;
     private String rua;
@@ -32,7 +29,14 @@ public class Localizacao implements Comparable<Usuario> {
     private String complemento;
     
     @Override
-    public int compareTo(Autonomo o) {
-        //TODO: 
+    public int compareTo(Localizacao o) {
+        int result=this.cep.compareTo(o.cep);
+        if (result == 0) {
+            return this.latitude.compareTo(o.latitude);
+        }
+        if (result == 0) {
+            return this.longitude.compareTo(o.longitude);
+        }
+        return result;
     }
 }

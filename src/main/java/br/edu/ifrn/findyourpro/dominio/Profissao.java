@@ -15,11 +15,7 @@ import lombok.ToString;
 @EqualsAndHashCode(exclude = "id")
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-
 public class Profissao implements Comparable<Profissao> {
-    private static final long serialVersionUID = 1L;
     
     private String tipo;
     

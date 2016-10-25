@@ -15,12 +15,8 @@ import lombok.ToString;
 @EqualsAndHashCode(exclude = "id")
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 
 public abstract class Usuario implements Comparable<Usuario> {
-
-    private static final long serialVersionUID = 1L;
 
     private Localizacao endereco;
     private String telefone;

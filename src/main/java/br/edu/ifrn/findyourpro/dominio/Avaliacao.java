@@ -15,11 +15,8 @@ import lombok.ToString;
 @EqualsAndHashCode(exclude = "id")
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 
 public class Avaliacao implements Comparable<Avaliacao> {
-    private static final long serialVersionUID = 1L;
     
     private Autonomo profissional;
     private Instituicao instituicao;
@@ -29,6 +26,19 @@ public class Avaliacao implements Comparable<Avaliacao> {
     
     @Override
     public int compareTo(Avaliacao o) {
-        //TODO: 
+        int result=0;
+        if(this.profissional!=null){
+            result=this.profissional.compareTo(o.profissional);
+        }
+        else{
+            result=this.instituicao.compareTo(o.instituicao);
+        }
+        if (result == 0) {
+            result=this.cliente.compareTo(o.cliente);
+        }
+        if (result == 0) {
+            result=this.descricao.compareTo(o.descricao);
+        }
+        return result;
     }
 }

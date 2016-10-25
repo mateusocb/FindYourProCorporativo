@@ -15,11 +15,8 @@ import lombok.ToString;
 @EqualsAndHashCode(exclude = "id")
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 
 public class Autonomo implements Comparable<Autonomo>{
-    private static final long serialVersionUID = 1L;
     
     private Profissao profissao;
     private String descricao;
@@ -28,6 +25,10 @@ public class Autonomo implements Comparable<Autonomo>{
     
     @Override
     public int compareTo(Autonomo o) {
-        return this.cpf.compareTo(o.cpf);
+        int result = this.usuario.compareTo(o.usuario);
+        if (result == 0) {
+            result = this.cpf.compareTo(o.cpf);
+	}
+        return result;
     }
 }
