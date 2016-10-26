@@ -16,16 +16,11 @@ import lombok.ToString;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 
-public class Usuario implements Comparable<Usuario> {
+public abstract class PrestadordeServico implements Comparable<PrestadordeServico> {
 
-    private Localizacao endereco;
-    private String telefone;
-    private String login;
-    private String nome;
-    private String senha;
-
-    @Override
-    public int compareTo(Usuario o) {
-        return this.login.compareTo(o.login);
-    }
+//    @Override;
+//    public int compareTo(PrestadordeServico o) {
+//        return this.servicos.compareTo(o.servicos);
+//    }
+    
 }

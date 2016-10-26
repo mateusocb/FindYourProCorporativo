@@ -21,7 +21,7 @@ public class Avaliacao implements Comparable<Avaliacao> {
     private Autonomo profissional;
     private Instituicao instituicao;
     private Usuario cliente;
-    private float nota;
+    private int nota;
     private String descricao;
 
     @Override
