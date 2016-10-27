@@ -21,7 +21,7 @@ public class Servico implements Comparable<Servico> {
 
    private String tipo;
    private String descricao;
-   Set<Servico> servicos;
+   Set<PrestadordeServico> prestador;
    
 
     @Override
