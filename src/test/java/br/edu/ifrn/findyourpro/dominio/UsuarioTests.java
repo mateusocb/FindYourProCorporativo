@@ -42,13 +42,13 @@ public class UsuarioTests {
     }
 
     @Test
-    public void NomeIgualLoginDiferente() {
+    public void nomeIgualLoginDiferente() {
         assertThat(Usuario.builder().login(LOGIN1).nome(NOME1).build())
                 .isNotEqualTo(Usuario.builder().login(LOGIN2).nome(NOME1).build());
     }
 
     @Test
-    public void NomeELoginDiferentes() {
+    public void nomeELoginDiferentes() {
         assertThat(Usuario.builder().login(LOGIN1).nome(NOME1).build())
                 .isNotEqualTo(Usuario.builder().login(LOGIN2).nome(NOME2).build());
     }
