@@ -26,8 +26,8 @@ public class UsuarioTests {
 
     private static final String LOGIN1 = "johann";
     private static final String LOGIN2 = "mateus";
-    private static final String NOME1 = "Johann";
-    private static final String NOME2 = "Mateus";
+    private static final String NOME1 = "johann guerra";
+    private static final String NOME2 = "mateus oliveira";
 
     @Test
     public void loginNomeIguais() {
