@@ -7,7 +7,6 @@ import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-/*import lombok.NonNull;*/
 import lombok.Setter;
 import lombok.ToString;
 
@@ -18,9 +17,7 @@ import lombok.ToString;
 @Builder
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-
 public class Avaliacao implements Comparable<Avaliacao> {
-
     private Servico servico;
     private Usuario cliente;
     private int nota;

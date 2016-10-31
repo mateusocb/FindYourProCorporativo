@@ -12,18 +12,21 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode(of="cpf")
+@EqualsAndHashCode(of={"cpf","prestador"})
 @Builder
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-
 public class Autonomo implements Comparable<Autonomo> {
-
     private String descricao;
     private String cpf;
-
+    private PrestadordeServico prestador;
+    
     @Override
     public int compareTo(Autonomo o) {
-        return this.cpf.compareTo(o.cpf);
+        int result = this.cpf.compareTo(o.cpf);
+        if(result==0){
+            result = this.prestador.compareTo(o.prestador);
+        }
+        return result;
     }
-}
+ }
