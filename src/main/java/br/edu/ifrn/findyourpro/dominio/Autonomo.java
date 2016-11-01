@@ -24,9 +24,4 @@ public class Autonomo extends PrestadordeServico {
         super(usuario, servicos);
         this.cpf = cpf;
     }
-
-    @Override
-    public int compareTo(PrestadordeServico o) {
-        return super.compareTo(o);
-    }
 }
