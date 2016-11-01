@@ -1,5 +1,6 @@
 package br.edu.ifrn.findyourpro.dominio;
 
+import java.util.Set;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,22 +12,21 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
-@EqualsAndHashCode(of={"cpf","prestador"})
-@Builder
-@AllArgsConstructor(access = AccessLevel.PROTECTED)
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Autonomo implements Comparable<Autonomo> {
-    private String descricao;
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper=false, of="cpf")
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class Autonomo extends PrestadordeServico {
     private String cpf;
-    private PrestadordeServico prestador;
     
-    @Override
-    public int compareTo(Autonomo o) {
-        int result = this.cpf.compareTo(o.cpf);
-        if(result==0){
-            result = this.prestador.compareTo(o.prestador);
-        }
-        return result;
+    @Builder
+    public Autonomo(Usuario usuario, Set<Servico> servicos, String cpf) {
+        super(usuario, servicos);
+        this.cpf = cpf;
     }
- }
+
+    @Override
+    public int compareTo(PrestadordeServico o) {
+        return super.compareTo(o);
+    }
+}

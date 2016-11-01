@@ -27,8 +27,8 @@ public class AvaliacaoTests {
 
     private static final String TIPO_SERVICO1 = "eletricista";
     private static final String TIPO_SERVICO2 = "encanador";
-    private static final String DESCRICAO_SERVICO1 = "sou foda";
-    private static final String DESCRICAO_SERVICO2 = "sou ruim";
+    private static final String DESCRICAO_SERVICO1 = "servico muito bom";
+    private static final String DESCRICAO_SERVICO2 = "servico muito ruim";
     private static final String LOGIN1 = "johann";
     private static final String LOGIN2 = "mateus";
     private static final int NOTA1 = 10;

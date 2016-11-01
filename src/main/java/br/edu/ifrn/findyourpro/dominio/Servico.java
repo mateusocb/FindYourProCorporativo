@@ -14,23 +14,21 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode(exclude="prestador")
+@EqualsAndHashCode(exclude = "prestadores")
 @Builder
-@AllArgsConstructor(access = AccessLevel.PROTECTED)
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Servico implements Comparable<Servico> {
 
-   private String tipo;
-   private String descricao;
-   Set<PrestadordeServico> prestador;
-   
+    private String tipo;
+    private String descricao;
+    Set<PrestadordeServico> prestadores;
 
     @Override
     public int compareTo(Servico o) {
-        int result= this.tipo.compareTo(o.tipo);
-        if(result==0){
-            result=this.descricao.compareTo(o.descricao);
+        int result = this.tipo.compareTo(o.tipo);
+        if (result == 0) {
+            result = this.descricao.compareTo(o.descricao);
         }
         return result;
     }

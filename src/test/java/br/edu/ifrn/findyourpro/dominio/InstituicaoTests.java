@@ -55,13 +55,14 @@ public class InstituicaoTests {
 
     @Test
     public void compareTo() {
-        Set<Instituicao> instituicaoes = new TreeSet<>();
+        Set<Instituicao> instituicoes = new TreeSet<>();
 
         Instituicao instituicao1 = Instituicao.builder().cnpj(CNPJ1).nomeFantasia(NOMEFANTASIA1).build();
+        instituicoes.add(instituicao1);
         Instituicao instituicao2 = Instituicao.builder().cnpj(CNPJ2).nomeFantasia(NOMEFANTASIA2).build();
-        instituicaoes.add(instituicao2);
-        instituicaoes.add(instituicao1);
+        instituicoes.add(instituicao2);
+    
 
-        assertThat(instituicaoes.iterator().next()).isEqualTo(instituicao1);
+        assertThat(instituicoes.iterator().next()).isEqualTo(instituicao1);
     }
 }
