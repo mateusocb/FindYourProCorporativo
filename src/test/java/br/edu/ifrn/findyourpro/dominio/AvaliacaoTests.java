@@ -1,4 +1,4 @@
-'package br.edu.ifrn.findyourpro.dominio;
+package br.edu.ifrn.findyourpro.dominio;
 
 import java.util.Date;
 import java.util.Set;
