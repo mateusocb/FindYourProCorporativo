@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package br.edu.ifrn.findyourpro.dominio;
 
 import java.util.Set;
@@ -24,56 +25,56 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ServicoTests {
 
-    private static final String TIPO1 = "eletricista";
-    private static final String TIPO2 = "encanador";
-    private static final String DESCRICAO1 = "luz";
-    private static final String DESCRICAO2 = "agua";
+	private static final String TIPO1 = "eletricista";
+	private static final String TIPO2 = "encanador";
+	private static final String DESCRICAO1 = "luz";
+	private static final String DESCRICAO2 = "agua";
 
-    @Test
-    public void tipoEDescricaoIguais() {
-        assertThat(Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build())
-                .isEqualTo(Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build());
-    }
+	@Test
+	public void tipoEDescricaoIguais() {
+		assertThat(Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build())
+				.isEqualTo(Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build());
+	}
 
-    @Test
-    public void tipoEDescricaoDiferentes() {
-        assertThat(Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build())
-                .isNotEqualTo(Servico.builder().tipo(TIPO2).descricao(DESCRICAO2).build());
-    }
+	@Test
+	public void tipoEDescricaoDiferentes() {
+		assertThat(Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build())
+				.isNotEqualTo(Servico.builder().tipo(TIPO2).descricao(DESCRICAO2).build());
+	}
 
-    @Test
-    public void tipoIgualDescricaoDiferente() {
-        assertThat(Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build())
-                .isNotEqualTo(Servico.builder().tipo(TIPO1).descricao(DESCRICAO2).build());
-    }
+	@Test
+	public void tipoIgualDescricaoDiferente() {
+		assertThat(Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build())
+				.isNotEqualTo(Servico.builder().tipo(TIPO1).descricao(DESCRICAO2).build());
+	}
 
-    @Test
-    public void descricaoIgualTipoDiferente() {
-        assertThat(Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build())
-                .isNotEqualTo(Servico.builder().tipo(TIPO2).descricao(DESCRICAO1).build());
-    }
+	@Test
+	public void descricaoIgualTipoDiferente() {
+		assertThat(Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build())
+				.isNotEqualTo(Servico.builder().tipo(TIPO2).descricao(DESCRICAO1).build());
+	}
 
-    @Test
-    public void compareToComTiposDiferentes() {
-        Set<Servico> servicos = new TreeSet<>();
+	@Test
+	public void compareToComTiposDiferentes() {
+		Set<Servico> servicos = new TreeSet<>();
 
-        Servico servico1 = Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build();
-        Servico servico2 = Servico.builder().tipo(TIPO2).descricao(DESCRICAO1).build();
-        servicos.add(servico2);
-        servicos.add(servico1);
+		Servico servico1 = Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build();
+		Servico servico2 = Servico.builder().tipo(TIPO2).descricao(DESCRICAO1).build();
+		servicos.add(servico2);
+		servicos.add(servico1);
 
-        assertThat(servicos.iterator().next()).isEqualTo(servico1);
-    }
+		assertThat(servicos.iterator().next()).isEqualTo(servico1);
+	}
 
-    @Test
-    public void compareToComDescricoesDiferentes() {
-        Set<Servico> servicos = new TreeSet<>();
+	@Test
+	public void compareToComDescricoesDiferentes() {
+		Set<Servico> servicos = new TreeSet<>();
 
-        Servico servico1 = Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build();
-        Servico servico2 = Servico.builder().tipo(TIPO1).descricao(DESCRICAO2).build();
-        servicos.add(servico1);
-        servicos.add(servico2);
+		Servico servico1 = Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build();
+		Servico servico2 = Servico.builder().tipo(TIPO1).descricao(DESCRICAO2).build();
+		servicos.add(servico1);
+		servicos.add(servico2);
 
-        assertThat(servicos.iterator().next()).isEqualTo(servico2);
-    }
+		assertThat(servicos.iterator().next()).isEqualTo(servico2);
+	}
 }

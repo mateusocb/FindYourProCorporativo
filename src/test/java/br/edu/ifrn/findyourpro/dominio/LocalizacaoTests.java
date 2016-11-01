@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package br.edu.ifrn.findyourpro.dominio;
 
 import java.util.Set;
@@ -24,82 +25,82 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class LocalizacaoTests {
 
-    private static final String LATITUDE1 = "500";
-    private static final String LATITUDE2 = "600";
-    private static final String LONGITUDE1 = "400";
-    private static final String LONGITUDE2 = "450";
-    private static final String CEP1 = "10";
-    private static final String CEP2 = "20";
+	private static final String LATITUDE1 = "500";
+	private static final String LATITUDE2 = "600";
+	private static final String LONGITUDE1 = "400";
+	private static final String LONGITUDE2 = "450";
+	private static final String CEP1 = "10";
+	private static final String CEP2 = "20";
 
-    @Test
-    public void latitudeLongitudeECepIguais() {
-        assertThat(Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP1).build())
-                .isEqualTo(Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP1).build());
-    }
+	@Test
+	public void latitudeLongitudeECepIguais() {
+		assertThat(Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP1).build())
+				.isEqualTo(Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP1).build());
+	}
 
-    @Test
-    public void latitudeELongitudeIguaisCepDiferente() {
-        assertThat(Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP1).build())
-                .isEqualTo(Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP2).build());
-    }
+	@Test
+	public void latitudeELongitudeIguaisCepDiferente() {
+		assertThat(Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP1).build())
+				.isEqualTo(Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP2).build());
+	}
 
-    @Test
-    public void latitudeDiferenteLongitudeECepIguais() {
-        assertThat(Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP1).build())
-                .isNotEqualTo(Localizacao.builder().latitude(LATITUDE2).longitude(LONGITUDE1).cep(CEP1).build());
-    }
+	@Test
+	public void latitudeDiferenteLongitudeECepIguais() {
+		assertThat(Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP1).build())
+				.isNotEqualTo(Localizacao.builder().latitude(LATITUDE2).longitude(LONGITUDE1).cep(CEP1).build());
+	}
 
-    @Test
-    public void longitudeDiferenteLatitudeECepIguais() {
-        assertThat(Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP1).build())
-                .isNotEqualTo(Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE2).cep(CEP1).build());
-    }
+	@Test
+	public void longitudeDiferenteLatitudeECepIguais() {
+		assertThat(Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP1).build())
+				.isNotEqualTo(Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE2).cep(CEP1).build());
+	}
 
-    @Test
-    public void cepIgualLatitudeELongitudeDiferentes() {
-        assertThat(Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP1).build())
-                .isNotEqualTo(Localizacao.builder().latitude(LATITUDE2).longitude(LONGITUDE2).cep(CEP1).build());
-    }
+	@Test
+	public void cepIgualLatitudeELongitudeDiferentes() {
+		assertThat(Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP1).build())
+				.isNotEqualTo(Localizacao.builder().latitude(LATITUDE2).longitude(LONGITUDE2).cep(CEP1).build());
+	}
 
-    @Test
-    public void latitudeLongitudeCepDiferentes() {
-        assertThat(Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP1).build())
-                .isNotEqualTo(Localizacao.builder().latitude(LATITUDE2).longitude(LONGITUDE2).cep(CEP2).build());
-    }
+	@Test
+	public void latitudeLongitudeCepDiferentes() {
+		assertThat(Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP1).build())
+				.isNotEqualTo(Localizacao.builder().latitude(LATITUDE2).longitude(LONGITUDE2).cep(CEP2).build());
+	}
 
-    @Test
-    public void compareToComCepsDiferentes() {
-        Set<Localizacao> localizacoes = new TreeSet<>();
+	@Test
+	public void compareToComCepsDiferentes() {
+		Set<Localizacao> localizacoes = new TreeSet<>();
 
-        Localizacao localizacao1 = Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP1).build();
-        Localizacao localizacao2 = Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP2).build();
-        localizacoes.add(localizacao2);
-        localizacoes.add(localizacao1);
+		Localizacao localizacao1 = Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP1).build();
+		Localizacao localizacao2 = Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP2).build();
+		localizacoes.add(localizacao2);
+		localizacoes.add(localizacao1);
 
-        assertThat(localizacoes.iterator().next()).isEqualTo(localizacao1);
-    }
+		assertThat(localizacoes.iterator().next()).isEqualTo(localizacao1);
+	}
 
-    @Test
-    public void compareToComLatitudesDiferentes() {
-        Set<Localizacao> localizacoes = new TreeSet<>();
+	@Test
+	public void compareToComLatitudesDiferentes() {
+		Set<Localizacao> localizacoes = new TreeSet<>();
 
-        Localizacao localizacao1 = Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP1).build();
-        Localizacao localizacao2 = Localizacao.builder().latitude(LATITUDE2).longitude(LONGITUDE1).cep(CEP1).build();
-        localizacoes.add(localizacao2);
-        localizacoes.add(localizacao1);
+		Localizacao localizacao1 = Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP1).build();
+		Localizacao localizacao2 = Localizacao.builder().latitude(LATITUDE2).longitude(LONGITUDE1).cep(CEP1).build();
+		localizacoes.add(localizacao2);
+		localizacoes.add(localizacao1);
 
-        assertThat(localizacoes.iterator().next()).isEqualTo(localizacao1);
-    }
+		assertThat(localizacoes.iterator().next()).isEqualTo(localizacao1);
+	}
 
-    @Test
-    public void compareToComLongitudesDiferentes() {
-        Set<Localizacao> localizacoes = new TreeSet<>();
+	@Test
+	public void compareToComLongitudesDiferentes() {
+		Set<Localizacao> localizacoes = new TreeSet<>();
 
-        Localizacao localizacao1 = Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP1).build();
-        Localizacao localizacao2 = Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE2).cep(CEP1).build();
-        localizacoes.add(localizacao2);
-        localizacoes.add(localizacao1);
+		Localizacao localizacao1 = Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE1).cep(CEP1).build();
+		Localizacao localizacao2 = Localizacao.builder().latitude(LATITUDE1).longitude(LONGITUDE2).cep(CEP1).build();
+		localizacoes.add(localizacao2);
+		localizacoes.add(localizacao1);
 
-        assertThat(localizacoes.iterator().next()).isEqualTo(localizacao1);
-    }
+		assertThat(localizacoes.iterator().next()).isEqualTo(localizacao1);
+	}
 }

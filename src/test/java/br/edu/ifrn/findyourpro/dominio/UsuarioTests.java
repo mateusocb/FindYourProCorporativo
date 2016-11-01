@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package br.edu.ifrn.findyourpro.dominio;
 
 import java.util.Set;
@@ -24,44 +25,44 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class UsuarioTests {
 
-    private static final String LOGIN1 = "johann";
-    private static final String LOGIN2 = "mateus";
-    private static final String NOME1 = "johann guerra";
-    private static final String NOME2 = "mateus oliveira";
+	private static final String LOGIN1 = "johann";
+	private static final String LOGIN2 = "mateus";
+	private static final String NOME1 = "johann guerra";
+	private static final String NOME2 = "mateus oliveira";
 
-    @Test
-    public void loginNomeIguais() {
-        assertThat(Usuario.builder().login(LOGIN1).nome(NOME1).build())
-                .isEqualTo(Usuario.builder().login(LOGIN1).nome(NOME1).build());
-    }
+	@Test
+	public void loginNomeIguais() {
+		assertThat(Usuario.builder().login(LOGIN1).nome(NOME1).build())
+				.isEqualTo(Usuario.builder().login(LOGIN1).nome(NOME1).build());
+	}
 
-    @Test
-    public void loginIgualNomeDiferente() {
-        assertThat(Usuario.builder().login(LOGIN1).nome(NOME1).build())
-                .isEqualTo(Usuario.builder().login(LOGIN1).nome(NOME2).build());
-    }
+	@Test
+	public void loginIgualNomeDiferente() {
+		assertThat(Usuario.builder().login(LOGIN1).nome(NOME1).build())
+				.isEqualTo(Usuario.builder().login(LOGIN1).nome(NOME2).build());
+	}
 
-    @Test
-    public void nomeIgualLoginDiferente() {
-        assertThat(Usuario.builder().login(LOGIN1).nome(NOME1).build())
-                .isNotEqualTo(Usuario.builder().login(LOGIN2).nome(NOME1).build());
-    }
+	@Test
+	public void nomeIgualLoginDiferente() {
+		assertThat(Usuario.builder().login(LOGIN1).nome(NOME1).build())
+				.isNotEqualTo(Usuario.builder().login(LOGIN2).nome(NOME1).build());
+	}
 
-    @Test
-    public void nomeELoginDiferentes() {
-        assertThat(Usuario.builder().login(LOGIN1).nome(NOME1).build())
-                .isNotEqualTo(Usuario.builder().login(LOGIN2).nome(NOME2).build());
-    }
+	@Test
+	public void nomeELoginDiferentes() {
+		assertThat(Usuario.builder().login(LOGIN1).nome(NOME1).build())
+				.isNotEqualTo(Usuario.builder().login(LOGIN2).nome(NOME2).build());
+	}
 
-    @Test
-    public void compareTo() {
-        Set<Usuario> usuarios = new TreeSet<>();
+	@Test
+	public void compareTo() {
+		Set<Usuario> usuarios = new TreeSet<>();
 
-        Usuario usuario1 = Usuario.builder().login(LOGIN1).nome(NOME1).build();
-        Usuario usuario2 = Usuario.builder().login(LOGIN2).nome(NOME1).build();
-        usuarios.add(usuario2);
-        usuarios.add(usuario1);
+		Usuario usuario1 = Usuario.builder().login(LOGIN1).nome(NOME1).build();
+		Usuario usuario2 = Usuario.builder().login(LOGIN2).nome(NOME1).build();
+		usuarios.add(usuario2);
+		usuarios.add(usuario1);
 
-        assertThat(usuarios.iterator().next()).isEqualTo(usuario1);
-    }
+		assertThat(usuarios.iterator().next()).isEqualTo(usuario1);
+	}
 }

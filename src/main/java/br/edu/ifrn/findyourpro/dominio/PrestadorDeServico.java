@@ -16,11 +16,10 @@
 
 package br.edu.ifrn.findyourpro.dominio;
 
-import java.util.Date;
+import java.util.Set;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,34 +27,31 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * Autonomo entity.
+ * PrestadorDeServico entity.
+ *
  * @author Johann Guerra
  */
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode(exclude = {"nota", "descricao"})
-@Builder
+@EqualsAndHashCode(of = "usuario")
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 
-public class Avaliacao implements Comparable<Avaliacao> {
+public abstract class PrestadorDeServico implements Comparable<PrestadorDeServico> {
 
-	private Servico servico;
-	private Usuario cliente;
-	private int nota;
-	private String descricao;
-	private Date data;
+	private Usuario usuario;
+	private Set<Servico> servicos;
 
 	@Override
-	public int compareTo(Avaliacao o) {
-		int result = this.data.compareTo(o.data);
-		if (result == 0) {
-			result = this.servico.compareTo(o.servico);
+	public int compareTo(PrestadorDeServico o) {
+		if (o instanceof Instituicao && this instanceof Instituicao) {
+			Instituicao a = (Instituicao) this;
+			Instituicao b = (Instituicao) o;
+			return a.getNomeFantasia().compareTo(b.getNomeFantasia());
 		}
-		if (result == 0) {
-			result = this.cliente.compareTo(o.cliente);
+		else {
+			return this.usuario.compareTo(o.usuario);
 		}
-		return result;
 	}
 }
