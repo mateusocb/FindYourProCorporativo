@@ -16,7 +16,20 @@
 
 package br.edu.ifrn.findyourpro.dominio;
 
+import java.io.Serializable;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -36,15 +49,35 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode(exclude = {"nota", "descricao"})
 @Builder
+@Entity
+@SequenceGenerator(sequenceName = "seq_avaliacao", name = "ID_SEQUENCE", allocationSize = 1)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 
-public class Avaliacao implements Comparable<Avaliacao> {
+public class Avaliacao implements Serializable, Comparable<Avaliacao> {
+    
+        private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ID_SEQUENCE")
+	private Long id;
+        
+        @OneToOne
+	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_avaliacao_servico"))
 	private Servico servico;
+        
+        @OneToOne
+	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_avalicao_usuario"))
 	private Usuario cliente;
+        
+        @Column(nullable = false)
 	private int nota;
+        
+        @Column(nullable = false)
 	private String descricao;
+        
+        @Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = false)
 	private Date data;
 
 	@Override

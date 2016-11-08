@@ -13,8 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package br.edu.ifrn.findyourpro.dominio;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -27,6 +35,7 @@ import lombok.ToString;
 
 /**
  * Localizacao entity.
+ *
  * @author Johann Guerra
  */
 @Getter
@@ -34,30 +43,55 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode(of = {"latitude", "longitude"})
 @Builder
+@Entity
+@SequenceGenerator(sequenceName = "seq_localizacao", name = "ID_SEQUENCE", allocationSize = 1)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 
-public class Localizacao implements Comparable<Localizacao> {
+public class Localizacao implements Serializable, Comparable<Localizacao> {
 
-	private String numero;
-	private String rua;
-	private String bairro;
-	private String cidade;
-	private String estado;
-	private String cep;
-	private String latitude;
-	private String longitude;
-	private String complemento;
+    private static final long serialVersionUID = 1L;
 
-	@Override
-	public int compareTo(Localizacao o) {
-		int result = this.cep.compareTo(o.cep);
-		if (result == 0) {
-			result = this.latitude.compareTo(o.latitude);
-		}
-		if (result == 0) {
-			result = this.longitude.compareTo(o.longitude);
-		}
-		return result;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ID_SEQUENCE")
+    private Long id;
+
+    @Column(nullable = false)
+    private String numero;
+
+    @Column(nullable = false)
+    private String rua;
+
+    @Column(nullable = false)
+    private String bairro;
+
+    @Column(nullable = false)
+    private String cidade;
+
+    @Column(nullable = false)
+    private String estado;
+
+    @Column(nullable = false)
+    private String cep;
+
+    @Column(nullable = false)
+    private String latitude;
+
+    @Column(nullable = false)
+    private String longitude;
+
+    @Column(nullable = false)
+    private String complemento;
+
+    @Override
+    public int compareTo(Localizacao o) {
+        int result = this.cep.compareTo(o.cep);
+        if (result == 0) {
+            result = this.latitude.compareTo(o.latitude);
+        }
+        if (result == 0) {
+            result = this.longitude.compareTo(o.longitude);
+        }
+        return result;
+    }
 }

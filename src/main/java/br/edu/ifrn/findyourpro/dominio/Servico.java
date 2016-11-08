@@ -17,6 +17,17 @@
 package br.edu.ifrn.findyourpro.dominio;
 
 import java.util.Set;
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -36,15 +47,29 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode(exclude = "prestadores")
 @Builder
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@Entity
+@SequenceGenerator(sequenceName = "seq_avaliacao", name = "ID_SEQUENCE", allocationSize = 1)
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 
-public class Servico implements Comparable<Servico> {
+public class Servico implements Serializable, Comparable<Servico> {
+        
+        private static final long serialVersionUID = 1L;
 
-	private String tipo;
-	private String descricao;
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ID_SEQUENCE")
+	private Long id;
+        
+        @ManyToMany
+	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_servico_prestador"))
 	Set<PrestadorDeServico> prestadores;
-
+        
+        @Column(nullable = false, unique = true)
+        private String tipo;
+        
+        @Column(nullable = false)
+	private String descricao;
+	
 	@Override
 	public int compareTo(Servico o) {
 		int result = this.tipo.compareTo(o.tipo);

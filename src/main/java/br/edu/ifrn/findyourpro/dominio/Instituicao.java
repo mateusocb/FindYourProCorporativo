@@ -18,6 +18,12 @@ package br.edu.ifrn.findyourpro.dominio;
 
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,14 +41,25 @@ import lombok.ToString;
 @Setter
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = false, of = "cnpj")
+@Entity
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 
 public class Instituicao extends PrestadorDeServico {
 
+        private static final long serialVersionUID = 1L;
+    
+        @OneToOne
+	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_instituicao_localizacao"))
 	private Localizacao endereco;
+        
+        @Column()
 	private String telefone;
+        
+        @Column()
 	private String nomeFantasia;
+        
+        @Column(unique=true)
 	private String cnpj;
 
 	@Builder

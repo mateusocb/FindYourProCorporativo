@@ -18,6 +18,9 @@ package br.edu.ifrn.findyourpro.dominio;
 
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,11 +38,15 @@ import lombok.ToString;
 @Setter
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = false, of = "cpf")
+@Entity
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 
 public class Autonomo extends PrestadorDeServico {
 
+        private static final long serialVersionUID = 1L;
+        
+        @Column(unique=true)
 	private String cpf;
 
 	@Builder
