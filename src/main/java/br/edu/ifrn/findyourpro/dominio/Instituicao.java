@@ -53,13 +53,13 @@ public class Instituicao extends PrestadorDeServico implements Serializable {
 	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_instituicao_localizacao"))
 	private Localizacao endereco;
 
-	@Column(nullable = false)
+	@Column(nullable = false, name="telefone")
 	private String telefone;
 
-	@Column(nullable = false)
+	@Column(nullable = false, name="nomeFantasia")
 	private String nomeFantasia;
 
-	@Column(unique = true, nullable = false)
+	@Column(unique = true, nullable = false, name="cnpj")
 	private String cnpj;
 
 	@Builder

@@ -71,14 +71,14 @@ public class Avaliacao implements Serializable, Comparable<Avaliacao> {
 	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_avalicao_usuario"))
 	private Usuario cliente;
 
-	@Column(nullable = false)
+	@Column(nullable = false, name="nota")
 	private int nota;
 
-	@Column(nullable = false)
+	@Column(nullable = false, name="descricao")
 	private String descricao;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(nullable = false)
+	@Column(nullable = false, name="data")
 	private Date data;
 
 	@Override

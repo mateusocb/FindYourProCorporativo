@@ -61,13 +61,13 @@ public class Servico implements Serializable, Comparable<Servico> {
 	private Long id;
 
 	@Singular
-	@ManyToMany(mappedBy = "servico")
+	@ManyToMany(mappedBy = "servicos")
 	Set<PrestadorDeServico> prestadores;
 
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false, unique = true, name="tipo")
 	private String tipo;
 
-	@Column(nullable = false)
+	@Column(nullable = false, name="descricao")
 	private String descricao;
 
 	@Override

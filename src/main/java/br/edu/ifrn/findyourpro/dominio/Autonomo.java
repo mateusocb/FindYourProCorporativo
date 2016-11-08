@@ -46,7 +46,7 @@ public class Autonomo extends PrestadorDeServico implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(unique = true, nullable = false)
+	@Column(unique = true, nullable = false, name="cpf")
 	private String cpf;
 
 	@Builder

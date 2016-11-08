@@ -27,6 +27,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
@@ -61,17 +62,19 @@ public abstract class PrestadorDeServico implements Serializable, Comparable<Pre
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ID_SEQUENCE")
-	protected Long id;
+	private Long id;
 
 	@NonNull
 	@ManyToOne
 	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_prestador_usuario"))
-	protected Usuario usuario;
+	private Usuario usuario;
 
 	@NonNull
 	@ManyToMany
-	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_prestador_servico"))
-	protected Set<Servico> servicos;
+	@JoinTable(foreignKey = @ForeignKey(name = "fk_prestadores_servicos"), name = "prestadores_servicos", joinColumns = {
+		@JoinColumn(foreignKey = @ForeignKey(name = "fk_prestadores_servicos_prestador_id"), name = "prestadorDeServico_id")}, inverseJoinColumns = {
+		@JoinColumn(name = "servico_id", foreignKey = @ForeignKey(name = "fk_servicos_prestadores_servico_id"))})
+	private Set<Servico> servicos;
 
 	@Override
 	public int compareTo(PrestadorDeServico o) {
