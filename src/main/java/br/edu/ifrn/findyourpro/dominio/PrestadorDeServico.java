@@ -43,6 +43,7 @@ import lombok.ToString;
  * PrestadorDeServico entity.
  *
  * @author Johann Guerra
+ * @param <P>
  */
 @Getter
 @Setter
@@ -54,7 +55,7 @@ import lombok.ToString;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 
-public abstract class PrestadorDeServico implements Serializable, Comparable<PrestadorDeServico> {
+public abstract class PrestadorDeServico<P extends PrestadorDeServico> implements Serializable, Comparable<P> {
 
     private static final long serialVersionUID = 1L;
 
@@ -73,13 +74,7 @@ public abstract class PrestadorDeServico implements Serializable, Comparable<Pre
     protected Set<Servico> servicos;
 
     @Override
-    public int compareTo(PrestadorDeServico o) {
-        if (o instanceof Instituicao && this instanceof Instituicao) {
-            Instituicao a = (Instituicao) this;
-            Instituicao b = (Instituicao) o;
-            return a.getNomeFantasia().compareTo(b.getNomeFantasia());
-        } else {
+    public int compareTo(P o) {
             return this.usuario.compareTo(o.usuario);
-        }
     }
 }

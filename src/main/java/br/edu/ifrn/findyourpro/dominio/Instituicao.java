@@ -15,6 +15,7 @@
  */
 package br.edu.ifrn.findyourpro.dominio;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -44,7 +45,7 @@ import lombok.ToString;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 
-public class Instituicao extends PrestadorDeServico {
+public class Instituicao extends PrestadorDeServico implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -70,5 +71,9 @@ public class Instituicao extends PrestadorDeServico {
         this.telefone = telefone;
         this.nomeFantasia = nomeFantasia;
         this.cnpj = cnpj;
+    }
+    
+    public int compareTo(Instituicao i) {
+        return this.getNomeFantasia().compareTo(i.getNomeFantasia());
     }
 }

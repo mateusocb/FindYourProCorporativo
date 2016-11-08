@@ -16,13 +16,13 @@
 
 package br.edu.ifrn.findyourpro.dominio;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -41,7 +41,7 @@ import lombok.ToString;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 
-public class Autonomo extends PrestadorDeServico {
+public class Autonomo extends PrestadorDeServico implements Serializable {
 
         private static final long serialVersionUID = 1L;
         
@@ -53,4 +53,5 @@ public class Autonomo extends PrestadorDeServico {
 		super(id, usuario, servicos);
 		this.cpf = cpf;
 	}
+        
 }
