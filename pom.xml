@@ -100,7 +100,7 @@
         <dependency>
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-jpa</artifactId>
-        </dependency>    
+        </dependency>
     </dependencies>
 
     <build>
@@ -164,15 +164,16 @@
                 <configuration>
                     <instrumentation>
                         <ignores>
-                            <ignore>br.edu.ifrn.findyourpro.dominio.*</ignore>
+                            <ignore>br.edu.ifrn.findyourpro.dominio.Q*</ignore>
                         </ignores>
                         <excludes>
-                            <exclude>br/edu/ifrn/findyourpro/dominio/Autonomo.class</exclude>
-                            <exclude>br/edu/ifrn/findyourpro/dominio/Avaliacao.class</exclude>
-                            <exclude>br/edu/ifrn/findyourpro/dominio/Instituicao.class</exclude>
-                            <exclude>br/edu/ifrn/findyourpro/dominio/Localizacao.class</exclude>
-                            <exclude>br/edu/ifrn/findyourpro/dominio/Profissao.class</exclude>
-                            <exclude>br/edu/ifrn/findyourpro/dominio/Usuario.class</exclude>                        
+                            <exclude>br/edu/ifrn/findyourpro/dominio/QAutonomo.class</exclude>
+                            <exclude>br/edu/ifrn/findyourpro/dominio/QAvaliacao.class</exclude>
+                            <exclude>br/edu/ifrn/findyourpro/dominio/QInstituicao.class</exclude>
+                            <exclude>br/edu/ifrn/findyourpro/dominio/QLocalizacao.class</exclude>
+                            <exclude>br/edu/ifrn/findyourpro/dominio/QPrestadorDeServico.class</exclude>
+                            <exclude>br/edu/ifrn/findyourpro/dominio/QServico.class</exclude>
+                            <exclude>br/edu/ifrn/findyourpro/dominio/QUsuario.class</exclude>                        
                         </excludes>
                     </instrumentation>
                 </configuration>            
