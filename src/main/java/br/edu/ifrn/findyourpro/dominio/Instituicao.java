@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package br.edu.ifrn.findyourpro.dominio;
 
 import java.util.Set;
@@ -35,6 +34,7 @@ import lombok.ToString;
 
 /**
  * Instituicao entity.
+ *
  * @author Johann Guerra
  */
 @Getter
@@ -47,29 +47,29 @@ import lombok.ToString;
 
 public class Instituicao extends PrestadorDeServico {
 
-        private static final long serialVersionUID = 1L;
-    
-        @OneToOne
-	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_instituicao_localizacao"))
-	private Localizacao endereco;
-        
-        @Column()
-	private String telefone;
-        
-        @Column()
-	private String nomeFantasia;
-        
-        @Column(unique=true)
-	private String cnpj;
+    private static final long serialVersionUID = 1L;
 
-	@Builder
-	public Instituicao(Usuario user, Set<Servico> servicos,
-			Localizacao endereco, String telefone, String nomeFantasia,
-			String cnpj) {
-		super(user, servicos);
-		this.endereco = endereco;
-		this.telefone = telefone;
-		this.nomeFantasia = nomeFantasia;
-		this.cnpj = cnpj;
-	}
+    @OneToOne
+    @JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_instituicao_localizacao"))
+    private Localizacao endereco;
+
+    @Column()
+    private String telefone;
+
+    @Column()
+    private String nomeFantasia;
+
+    @Column(unique = true)
+    private String cnpj;
+
+    @Builder
+    public Instituicao(Long id, Usuario user, Set<Servico> servicos,
+            Localizacao endereco, String telefone, String nomeFantasia,
+            String cnpj) {
+        super(id, user, servicos);
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.nomeFantasia = nomeFantasia;
+        this.cnpj = cnpj;
+    }
 }

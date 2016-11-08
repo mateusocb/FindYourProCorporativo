@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package br.edu.ifrn.findyourpro.dominio;
 
 import java.util.Set;
@@ -27,8 +26,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 import lombok.AccessLevel;
@@ -56,32 +55,31 @@ import lombok.ToString;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 
 public abstract class PrestadorDeServico implements Serializable, Comparable<PrestadorDeServico> {
-    
-        private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ID_SEQUENCE")
-	private Long id;
+    private static final long serialVersionUID = 1L;
 
-        @NonNull
-	@ManyToOne
-	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_prestador_usuario"))
-	private Usuario usuario;
-        
-        @NonNull
-	@OneToMany
-	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_prestador_servico"))
-	private Set<Servico> servicos;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ID_SEQUENCE")
+    protected Long id;
 
-	@Override
-	public int compareTo(PrestadorDeServico o) {
-		if (o instanceof Instituicao && this instanceof Instituicao) {
-			Instituicao a = (Instituicao) this;
-			Instituicao b = (Instituicao) o;
-			return a.getNomeFantasia().compareTo(b.getNomeFantasia());
-		}
-		else {
-			return this.usuario.compareTo(o.usuario);
-		}
-	}
+    @NonNull
+    @ManyToOne
+    @JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_prestador_usuario"))
+    protected Usuario usuario;
+
+    @NonNull
+    @ManyToMany
+    @JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_prestador_servico"))
+    protected Set<Servico> servicos;
+
+    @Override
+    public int compareTo(PrestadorDeServico o) {
+        if (o instanceof Instituicao && this instanceof Instituicao) {
+            Instituicao a = (Instituicao) this;
+            Instituicao b = (Instituicao) o;
+            return a.getNomeFantasia().compareTo(b.getNomeFantasia());
+        } else {
+            return this.usuario.compareTo(o.usuario);
+        }
+    }
 }

@@ -36,6 +36,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.Singular;
 import lombok.ToString;
 
 /**
@@ -60,8 +61,8 @@ public class Servico implements Serializable, Comparable<Servico> {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ID_SEQUENCE")
 	private Long id;
         
-        @ManyToMany
-	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_servico_prestador"))
+	@Singular
+	@ManyToMany(mappedBy = "servico")
 	Set<PrestadorDeServico> prestadores;
         
         @Column(nullable = false, unique = true)

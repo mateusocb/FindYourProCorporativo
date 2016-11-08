@@ -50,8 +50,8 @@ public class Autonomo extends PrestadorDeServico {
 	private String cpf;
 
 	@Builder
-	public Autonomo(Usuario usuario, Set<Servico> servicos, String cpf) {
-		super(usuario, servicos);
+	public Autonomo(Long id, Usuario usuario, Set<Servico> servicos, String cpf) {
+		super(id, usuario, servicos);
 		this.cpf = cpf;
 	}
 }
