@@ -53,5 +53,4 @@ public class Autonomo extends PrestadorDeServico implements Serializable {
 		super(id, usuario, servicos);
 		this.cpf = cpf;
 	}
-        
 }

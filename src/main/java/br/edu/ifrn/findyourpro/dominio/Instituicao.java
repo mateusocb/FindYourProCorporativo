@@ -72,8 +72,4 @@ public class Instituicao extends PrestadorDeServico implements Serializable {
         this.nomeFantasia = nomeFantasia;
         this.cnpj = cnpj;
     }
-    
-    public int compareTo(Instituicao i) {
-        return this.getNomeFantasia().compareTo(i.getNomeFantasia());
-    }
 }
