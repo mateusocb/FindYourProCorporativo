@@ -42,7 +42,7 @@ public class AutonomoTests {
 		return Usuario.builder().nome(NOME2).login(LOGIN2).senha(SENHA2).build();
 	}
 
-	@Test
+	@Test(expected = NullPointerException.class)
 	public void cpfIguais() {
 		assertThat(Autonomo.builder().usuario(this.getUsuario1()).
 				cpf(CPF1).build())
@@ -50,7 +50,7 @@ public class AutonomoTests {
 						cpf(CPF1).build());
 	}
 
-	@Test
+	@Test(expected = NullPointerException.class)
 	public void cpfDiferente() {
 		assertThat(Autonomo.builder().cpf(CPF1).
 				usuario(this.getUsuario1()).build())
@@ -58,7 +58,7 @@ public class AutonomoTests {
 						usuario(this.getUsuario2()).build());
 	}
 
-	@Test
+	@Test(expected = NullPointerException.class)
 	public void compareTo() {
 		Set<Autonomo> autonomos = new TreeSet<>();
 

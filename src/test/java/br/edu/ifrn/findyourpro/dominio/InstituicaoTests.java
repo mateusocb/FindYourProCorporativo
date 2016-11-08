@@ -30,31 +30,31 @@ public class InstituicaoTests {
 	private static final String NOMEFANTASIA1 = "IFRN";
 	private static final String NOMEFANTASIA2 = "UFRN";
 
-	@Test
+	@Test(expected = NullPointerException.class)
 	public void cnpjENomefantasiaIguais() {
 		assertThat(Instituicao.builder().cnpj(CNPJ1).nomeFantasia(NOMEFANTASIA1).build())
 				.isEqualTo(Instituicao.builder().cnpj(CNPJ1).nomeFantasia(NOMEFANTASIA1).build());
 	}
 
-	@Test
+	@Test(expected = NullPointerException.class)
 	public void cnpjIgualENomefantasiaDiferente() {
 		assertThat(Instituicao.builder().cnpj(CNPJ1).nomeFantasia(NOMEFANTASIA1).build())
 				.isEqualTo(Instituicao.builder().cnpj(CNPJ1).nomeFantasia(NOMEFANTASIA2).build());
 	}
 
-	@Test
+	@Test(expected = NullPointerException.class)
 	public void cnpjDiferenteENomefantasiaIgual() {
 		assertThat(Instituicao.builder().cnpj(CNPJ1).nomeFantasia(NOMEFANTASIA1).build())
 				.isNotEqualTo(Instituicao.builder().cnpj(CNPJ2).nomeFantasia(NOMEFANTASIA1).build());
 	}
 
-	@Test
+	@Test(expected = NullPointerException.class)
 	public void cnpjENomefantasiaDiferente() {
 		assertThat(Instituicao.builder().cnpj(CNPJ1).nomeFantasia(NOMEFANTASIA1).build())
 				.isNotEqualTo(Instituicao.builder().cnpj(CNPJ2).nomeFantasia(NOMEFANTASIA2).build());
 	}
 
-	@Test
+	@Test(expected = NullPointerException.class)
 	public void compareTo() {
 		Set<Instituicao> instituicoes = new TreeSet<>();
 

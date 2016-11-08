@@ -37,9 +37,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = false, of = "cpf")
+@EqualsAndHashCode(callSuper = true, of = "cpf")
 @Entity
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 
 public class Autonomo extends PrestadorDeServico {

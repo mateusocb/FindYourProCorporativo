@@ -40,9 +40,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = false, of = "cnpj")
+@EqualsAndHashCode(callSuper = true, of = "cnpj")
 @Entity
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 
 public class Instituicao extends PrestadorDeServico {
