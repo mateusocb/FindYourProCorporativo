@@ -25,13 +25,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -43,6 +39,7 @@ import lombok.ToString;
 
 /**
  * Usuario entity.
+ *
  * @author Johann Guerra
  */
 @Getter
@@ -56,27 +53,27 @@ import lombok.ToString;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 
 public class Usuario implements Serializable, Comparable<Usuario> {
-        
-        private static final long serialVersionUID = 1L;
 
-        @Id
+	private static final long serialVersionUID = 1L;
+
+	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ID_SEQUENCE")
 	private Long id;
-        
-        @OneToOne
-        @JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_usuario_localizacao"))
+
+	@OneToOne
+	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_usuario_localizacao"))
 	private Localizacao endereco;
-        
-        @Column(nullable = false)
+
+	@Column(nullable = false)
 	private String telefone;
-        
-        @Column(nullable = false, unique=true)
+
+	@Column(nullable = false, unique = true)
 	private String login;
-        
-        @Column(nullable = false)
+
+	@Column(nullable = false)
 	private String nome;
-        
-        @Column(nullable = false)
+
+	@Column(nullable = false)
 	private String senha;
 
 	@Override

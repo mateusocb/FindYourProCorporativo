@@ -42,6 +42,7 @@ import lombok.ToString;
 
 /**
  * Autonomo entity.
+ *
  * @author Johann Guerra
  */
 @Getter
@@ -55,28 +56,28 @@ import lombok.ToString;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 
 public class Avaliacao implements Serializable, Comparable<Avaliacao> {
-    
-        private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ID_SEQUENCE")
 	private Long id;
-        
-        @OneToOne
+
+	@OneToOne
 	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_avaliacao_servico"))
 	private Servico servico;
-        
-        @OneToOne
+
+	@OneToOne
 	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_avalicao_usuario"))
 	private Usuario cliente;
-        
-        @Column(nullable = false)
+
+	@Column(nullable = false)
 	private int nota;
-        
-        @Column(nullable = false)
+
+	@Column(nullable = false)
 	private String descricao;
-        
-        @Temporal(TemporalType.TIMESTAMP)
+
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable = false)
 	private Date data;
 

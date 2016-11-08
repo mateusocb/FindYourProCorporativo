@@ -16,16 +16,14 @@
 
 package br.edu.ifrn.findyourpro.dominio;
 
-import java.util.Set;
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 
@@ -41,6 +39,7 @@ import lombok.ToString;
 
 /**
  * Servico entity.
+ *
  * @author Johann Guerra
  */
 @Getter
@@ -54,23 +53,23 @@ import lombok.ToString;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 
 public class Servico implements Serializable, Comparable<Servico> {
-        
-        private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ID_SEQUENCE")
 	private Long id;
-        
+
 	@Singular
 	@ManyToMany(mappedBy = "servico")
 	Set<PrestadorDeServico> prestadores;
-        
-        @Column(nullable = false, unique = true)
-        private String tipo;
-        
-        @Column(nullable = false)
+
+	@Column(nullable = false, unique = true)
+	private String tipo;
+
+	@Column(nullable = false)
 	private String descricao;
-	
+
 	@Override
 	public int compareTo(Servico o) {
 		int result = this.tipo.compareTo(o.tipo);

@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package br.edu.ifrn.findyourpro.dominio;
 
 import java.io.Serializable;
@@ -25,7 +26,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -47,29 +47,29 @@ import lombok.ToString;
 
 public class Instituicao extends PrestadorDeServico implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @OneToOne
-    @JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_instituicao_localizacao"))
-    private Localizacao endereco;
+	@OneToOne
+	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_instituicao_localizacao"))
+	private Localizacao endereco;
 
-    @Column()
-    private String telefone;
+	@Column(nullable = false)
+	private String telefone;
 
-    @Column()
-    private String nomeFantasia;
+	@Column(nullable = false)
+	private String nomeFantasia;
 
-    @Column(unique = true)
-    private String cnpj;
+	@Column(unique = true, nullable = false)
+	private String cnpj;
 
-    @Builder
-    public Instituicao(Long id, Usuario user, Set<Servico> servicos,
-            Localizacao endereco, String telefone, String nomeFantasia,
-            String cnpj) {
-        super(id, user, servicos);
-        this.endereco = endereco;
-        this.telefone = telefone;
-        this.nomeFantasia = nomeFantasia;
-        this.cnpj = cnpj;
-    }
+	@Builder
+	public Instituicao(Long id, Usuario user, Set<Servico> servicos,
+			Localizacao endereco, String telefone, String nomeFantasia,
+			String cnpj) {
+		super(id, user, servicos);
+		this.endereco = endereco;
+		this.telefone = telefone;
+		this.nomeFantasia = nomeFantasia;
+		this.cnpj = cnpj;
+	}
 }

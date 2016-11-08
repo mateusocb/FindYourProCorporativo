@@ -32,6 +32,7 @@ import lombok.ToString;
 
 /**
  * Autonomo entity.
+ *
  * @author Johann Guerra
  */
 @Getter
@@ -43,9 +44,9 @@ import lombok.ToString;
 
 public class Autonomo extends PrestadorDeServico implements Serializable {
 
-        private static final long serialVersionUID = 1L;
-        
-        @Column(unique=true)
+	private static final long serialVersionUID = 1L;
+
+	@Column(unique = true, nullable = false)
 	private String cpf;
 
 	@Builder
