@@ -64,10 +64,10 @@ public class Servico implements Serializable, Comparable<Servico> {
 	@ManyToMany(mappedBy = "servicos")
 	Set<PrestadorDeServico> prestadores;
 
-	@Column(nullable = false, unique = true, name="tipo")
+	@Column(nullable = false, unique = true, name = "tipo")
 	private String tipo;
 
-	@Column(nullable = false, name="descricao")
+	@Column(nullable = false, name = "descricao")
 	private String descricao;
 
 	@Override
