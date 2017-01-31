@@ -16,7 +16,7 @@ spring:
     show-sql: true
 info:
   url: @project.url@
-  version: @project.version@
+  version: @project.version@ 
 server:
   port: 7070
 endpoints:
