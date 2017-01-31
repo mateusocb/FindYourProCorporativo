@@ -57,31 +57,31 @@ public class Localizacao implements Serializable, Comparable<Localizacao> {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ID_SEQUENCE")
 	private Long id;
 
-	@Column(nullable = false, name = "numero")
+	@Column(nullable = true, name = "numero")
 	private String numero;
 
-	@Column(nullable = false, name = "rua")
+	@Column(nullable = true, name = "rua")
 	private String rua;
 
-	@Column(nullable = false, name = "bairro")
+	@Column(nullable = true, name = "bairro")
 	private String bairro;
 
-	@Column(nullable = false, name = "cidade")
+	@Column(nullable = true, name = "cidade")
 	private String cidade;
 
-	@Column(nullable = false, name = "estado")
+	@Column(nullable = true, name = "estado")
 	private String estado;
 
-	@Column(nullable = false, name = "cep")
+	@Column(nullable = true, name = "cep")
 	private String cep;
 
-	@Column(nullable = false, name = "latitude")
+	@Column(nullable = true, name = "latitude")
 	private String latitude;
 
-	@Column(nullable = false, name = "longitude")
+	@Column(nullable = true, name = "longitude")
 	private String longitude;
 
-	@Column(nullable = false, name = "complemento")
+	@Column(nullable = true, name = "complemento")
 	private String complemento;
 
 	@Override
