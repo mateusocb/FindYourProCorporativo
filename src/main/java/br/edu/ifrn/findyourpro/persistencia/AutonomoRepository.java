@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 FindYourPro.
+ * Copyright 2017 FindYourPro.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,10 +15,14 @@
  */
 package br.edu.ifrn.findyourpro.persistencia;
 
+import br.edu.ifrn.findyourpro.dominio.Autonomo;
+
+import org.springframework.data.repository.CrudRepository;
+
 /**
  *
  * @author johan
  */
-class UsuarioRepository {
-	
+public interface AutonomoRepository extends CrudRepository<Autonomo, Long>{
+	Autonomo findByCpf(String cpf);
 }

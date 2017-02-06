@@ -38,10 +38,10 @@ public class AvaliacaoFabrica {
 	private AvaliacaoRepository avaliacaoRepository;
 	
 	@Inject
-	private ServicoRepository servicoRepository;
+	private ServicoFabrica servicoRepository;
 	
 	@Inject
-	private UsuarioRepository usuarioRepository;
+	private UsuarioFabrica usuarioRepository;
 	
 	public Avaliacao avaliacao(int nota, Servico servico, Usuario cliente) {
 		Avaliacao avaliacao = this.avaliacaoRepository.findByNotaAndServicoAndUsuario(nota, servico, cliente);

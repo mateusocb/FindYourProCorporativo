@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 FindYourPro.
+ * Copyright 2017 FindYourPro.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,19 +15,14 @@
  */
 package br.edu.ifrn.findyourpro.persistencia;
 
-import java.io.Serializable;
-
-import br.edu.ifrn.findyourpro.dominio.Localizacao;
+import br.edu.ifrn.findyourpro.dominio.Instituicao;
 
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.QueryByExampleExecutor;
 
 /**
  *
  * @author johan
  */
-public interface LocalizacaoRepository <T extends Localizacao, ID extends Serializable> extends CrudRepository<T, ID>, QueryByExampleExecutor<T> {
-	T findByLatitude(String latitude);
-	T findByLongitude(String logintude);
-	T findByLatitudeAndLongitude(String logintude, String latitude);
+public interface InstituicaoRepository extends CrudRepository<Instituicao, Long>{
+	Instituicao findByCnpj(String cnpj);
 }

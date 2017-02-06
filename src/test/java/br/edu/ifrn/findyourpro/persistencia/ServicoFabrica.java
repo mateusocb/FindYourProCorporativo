@@ -15,19 +15,10 @@
  */
 package br.edu.ifrn.findyourpro.persistencia;
 
-import java.io.Serializable;
-
-import br.edu.ifrn.findyourpro.dominio.Localizacao;
-
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.QueryByExampleExecutor;
-
 /**
  *
  * @author johan
  */
-public interface LocalizacaoRepository <T extends Localizacao, ID extends Serializable> extends CrudRepository<T, ID>, QueryByExampleExecutor<T> {
-	T findByLatitude(String latitude);
-	T findByLongitude(String logintude);
-	T findByLatitudeAndLongitude(String logintude, String latitude);
+class ServicoFabrica {
+	
 }

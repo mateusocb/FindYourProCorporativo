@@ -19,6 +19,6 @@ package br.edu.ifrn.findyourpro.persistencia;
  *
  * @author johan
  */
-class ServicoRepository {
+class UsuarioFabrica {
 	
 }
