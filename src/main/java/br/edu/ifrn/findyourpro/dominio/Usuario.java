@@ -64,7 +64,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_usuario_localizacao"))
 	private Localizacao endereco;
 
-	@Column(nullable = false, name = "telefone")
+	@Column(nullable = true, name = "telefone")
 	private String telefone;
 
 	@Column(nullable = false, unique = true, name = "login")
