@@ -37,7 +37,7 @@ public class InstituicaoFabrica {
 	@Inject
 	private LocalizacaoFabrica localizacaoFabrica;
 
-	public Instituicao instituicao(String cnpj, String nomeFantasia, Usuario user, Localizacao endereco) {
+	public Instituicao instituicao(String cnpj, String nomeFantasia, Usuario usuario, Localizacao endereco) {
 		Instituicao instituicao = this.instituicaoRepository.findByCnpj(cnpj);
 		if (instituicao == null) {
 			instituicao = Instituicao.builder()
