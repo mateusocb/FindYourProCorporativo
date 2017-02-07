@@ -27,5 +27,5 @@ import org.springframework.data.repository.CrudRepository;
  * @author Johann Guerra
  */
 public interface AvaliacaoRepository extends CrudRepository<Avaliacao, Long> {
-	Avaliacao findByNotaAndServicoAndUsuario(int nota, Servico servico, Usuario cliente);
+	Avaliacao findByNotaAndServicoAndCliente(int nota, Servico servico, Usuario cliente);
 }
