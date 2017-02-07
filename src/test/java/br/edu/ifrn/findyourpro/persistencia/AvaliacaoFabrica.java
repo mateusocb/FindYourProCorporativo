@@ -60,6 +60,6 @@ public class AvaliacaoFabrica {
 	}
 
 	public Avaliacao nota5() {
-		return avaliacao(NOTA1, this.servicoFabrica.encanamento(), this.usuarioFabrica.johann());
+		return avaliacao(NOTA2, this.servicoFabrica.encanamento(), this.usuarioFabrica.johann());
 	}
 }

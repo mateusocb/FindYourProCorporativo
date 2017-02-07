@@ -40,11 +40,11 @@ public class InstituicaoFabrica {
 		return instituicao;
 	}
 
-	public Instituicao IFRN() {
+	public Instituicao ifrn() {
 		return instituicao(CNPJ1);
 	}
 
-	public Instituicao UFRN() {
+	public Instituicao ufrn() {
 		return instituicao(CNPJ2);
 	}
 }
