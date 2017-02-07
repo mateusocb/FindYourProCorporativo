@@ -19,9 +19,9 @@ package br.edu.ifrn.findyourpro.persistencia;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.edu.ifrn.findyourpro.dominio.Localizacao;
 import br.edu.ifrn.findyourpro.dominio.Instituicao;
 import br.edu.ifrn.findyourpro.dominio.Usuario;
-import br.edu.ifrn.findyourpro.dominio.Localizacao;
 
 @Named
 public class InstituicaoFabrica {
@@ -32,10 +32,10 @@ public class InstituicaoFabrica {
 
 	@Inject
 	private InstituicaoRepository instituicaoRepository;
-		
+
 	@Inject
 	private UsuarioFabrica usuarioFabrica;
-	
+
 	@Inject
 	private LocalizacaoFabrica localizacaoFabrica;
 
