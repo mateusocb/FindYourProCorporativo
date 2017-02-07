@@ -17,15 +17,16 @@
 package br.edu.ifrn.findyourpro.persistencia;
 
 import javax.inject.Inject;
-
 import br.edu.ifrn.findyourpro.FindYourProApplication;
 import br.edu.ifrn.findyourpro.dominio.Avaliacao;
-import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 /**
