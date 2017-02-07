@@ -21,7 +21,7 @@
         <duplicate.ignoredClassPattern>javax.persistence.(SynchronizationType|Persistence(Context|ContextType|Contexts|Property|Unit|Units))</duplicate.ignoredClassPattern>
         <duplicate.ignoredResourcePattern>(changelog.txt|application.yml)</duplicate.ignoredResourcePattern>
         <pmd.excludeFromFailureFile>${check.dir}/pmd/pmd-exclude.properties</pmd.excludeFromFailureFile>        
-        <checkstyle.excludes>br/edu/ifrn/conta/dominio/Q*</checkstyle.excludes>
+        <checkstyle.excludes>br/edu/ifrn/findyourpro/dominio/Q*</checkstyle.excludes>
         <cobertura.totalLineRate>34</cobertura.totalLineRate>
         <cobertura.packageLineRate>0</cobertura.packageLineRate>
         <cobertura.lineRate>0</cobertura.lineRate>
