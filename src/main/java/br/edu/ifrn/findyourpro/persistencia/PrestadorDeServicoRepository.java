@@ -16,8 +16,6 @@
 
 package br.edu.ifrn.findyourpro.persistencia;
 
-import java.io.Serializable;
-
 import br.edu.ifrn.findyourpro.dominio.PrestadorDeServico;
 import br.edu.ifrn.findyourpro.dominio.Usuario;
 
