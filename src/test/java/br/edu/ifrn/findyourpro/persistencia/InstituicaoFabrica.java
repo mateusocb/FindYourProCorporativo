@@ -32,7 +32,7 @@ public class InstituicaoFabrica {
 	private InstituicaoRepository instituicaoRepository;
 		
 	@Inject
-	private LocalizacaoFabrica usuarioFabrica;
+	private UsuarioFabrica usuarioFabrica;
 	
 	@Inject
 	private LocalizacaoFabrica localizacaoFabrica;
