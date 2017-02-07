@@ -51,7 +51,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode(of = "usuario")
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @SequenceGenerator(sequenceName = "seq_prestadorDeServico", name = "ID_SEQUENCE", allocationSize = 1)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -69,7 +69,6 @@ public abstract class PrestadorDeServico implements Serializable, Comparable<Pre
 	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_prestador_usuario"))
 	private Usuario usuario;
 
-	@NonNull
 	@ManyToMany
 	@JoinTable(foreignKey = @ForeignKey(name = "fk_prestadores_servicos"), name = "prestadores_servicos", joinColumns = {
 		@JoinColumn(foreignKey = @ForeignKey(name = "fk_prestadores_servicos_prestador_id"), name = "prestadorDeServico_id")}, inverseJoinColumns = {

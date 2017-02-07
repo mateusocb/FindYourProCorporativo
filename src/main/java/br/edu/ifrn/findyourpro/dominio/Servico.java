@@ -62,7 +62,7 @@ public class Servico implements Serializable, Comparable<Servico> {
 
 	@Singular
 	@ManyToMany(mappedBy = "servicos")
-	Set<PrestadorDeServico> prestadores;
+	private Set<PrestadorDeServico> prestadores;
 
 	@Column(nullable = false, unique = true, name = "tipo")
 	private String tipo;

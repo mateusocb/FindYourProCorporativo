@@ -29,6 +29,6 @@ import org.springframework.data.repository.query.QueryByExampleExecutor;
  * @param <ID> tipo da chave da conta
  * @author Johann Guerra
  */
-public interface ServicoRepository<T extends Servico, ID extends Serializable> extends CrudRepository<T, ID>, QueryByExampleExecutor<T> {
-	T findByTipoAndDescricao(String tipo, String descricao);
+public interface ServicoRepository extends CrudRepository<Servico, Long>, QueryByExampleExecutor<Servico> {
+	Servico findByTipoAndDescricao(String tipo, String descricao);
 }

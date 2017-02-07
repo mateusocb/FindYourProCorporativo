@@ -28,6 +28,8 @@ public class LocalizacaoFabrica {
 	public final static String IFRN1 = "250";
 	public final static String MIDWAY = "100";
 	public final static String MIDWAY1 = "255";
+        public final static String MARESOL1 = "100";
+	public final static String MARESOL2 = "260";
 
 	@Inject
 	private LocalizacaoRepository localizacaoRepository;
@@ -50,5 +52,9 @@ public class LocalizacaoFabrica {
 
 	public Localizacao midway() {
 		return localizacao(MIDWAY, MIDWAY1);
+	}
+        
+        public Localizacao marEsol() {
+		return localizacao(MARESOL1, MARESOL2);
 	}
 }

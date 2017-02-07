@@ -29,6 +29,6 @@ import org.springframework.data.repository.query.QueryByExampleExecutor;
  * @param <ID> tipo da chave da conta
  * @author Johann Guerra
  */
-public interface LocalizacaoRepository<T extends Localizacao, ID extends Serializable> extends CrudRepository<T, ID>, QueryByExampleExecutor<T> {
-	T findByLatitudeAndLongitude(String logintude, String latitude);
+public interface LocalizacaoRepository extends CrudRepository<Localizacao, Long>, QueryByExampleExecutor<Localizacao> {
+	Localizacao findByLatitudeAndLongitude(String logintude, String latitude);
 }

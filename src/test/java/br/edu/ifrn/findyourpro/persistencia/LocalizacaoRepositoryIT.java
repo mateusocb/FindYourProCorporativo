@@ -61,7 +61,7 @@ public class LocalizacaoRepositoryIT {
 	@Test
 	public void deletarUm() {
 		// cria o ambiente de teste
-		Localizacao localizacao = this.localizacaoFabrica.midway();
+		Localizacao localizacao = this.localizacaoFabrica.marEsol();
 
 		// executa a operacao a ser testada
 		this.localizacaoRepository.delete(localizacao);
