@@ -17,9 +17,9 @@
 package br.edu.ifrn.findyourpro.persistencia;
 
 import javax.inject.Inject;
+
 import br.edu.ifrn.findyourpro.FindYourProApplication;
 import br.edu.ifrn.findyourpro.dominio.Avaliacao;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -28,11 +28,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
-/**
- *
- * @author johan
- */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = FindYourProApplication.class, webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 public class AvaliacaoRepositoryIT {
