@@ -63,10 +63,10 @@ public class Instituicao extends PrestadorDeServico implements Serializable {
 	private String cnpj;
 
 	@Builder
-	public Instituicao(Long id, Usuario user, Set<Servico> servicos,
+	public Instituicao(Long id, Usuario usuario, Set<Servico> servicos,
 			Localizacao endereco, String telefone, String nomeFantasia,
 			String cnpj) {
-		super(id, user, servicos);
+		super(id, usuario, servicos);
 		this.endereco = endereco;
 		this.telefone = telefone;
 		this.nomeFantasia = nomeFantasia;
