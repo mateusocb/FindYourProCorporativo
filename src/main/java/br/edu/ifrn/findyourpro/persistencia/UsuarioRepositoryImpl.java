@@ -33,7 +33,7 @@ public class UsuarioRepositoryImpl implements UsuarioRepositoryCustom{
 	private final EntityManager entityManager;
 
 	@Inject
-	public UsuarioRepositoryImpl(EntityManager entityManager, String login) {
+	public UsuarioRepositoryImpl(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
 	

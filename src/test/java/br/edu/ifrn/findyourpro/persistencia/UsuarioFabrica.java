@@ -15,10 +15,40 @@
  */
 package br.edu.ifrn.findyourpro.persistencia;
 
+import br.edu.ifrn.findyourpro.dominio.Usuario;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+
 /**
  *
  * @author johan
  */
+@Named
 class UsuarioFabrica {
+		
+	private static final String JOHANN = "johann";
+	private static final String MATEUS = "mateus";
 	
+	@Inject
+	private UsuarioRepository usuarioRepository;
+	
+	public Usuario usuario(String login) {
+		Usuario usuario = this.usuarioRepository.findByLogin(login);
+		if (usuario == null) {
+		usuario = Usuario.builder()
+			.login(login)
+			.build();
+		this.usuarioRepository.save(usuario);
+		}
+		return usuario;
+	}
+	
+	public Usuario johann() {
+		return usuario(JOHANN);
+	}
+
+	public Usuario mateus() {
+		return usuario(MATEUS);
+	}
 }
