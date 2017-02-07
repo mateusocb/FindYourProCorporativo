@@ -25,6 +25,7 @@ import org.springframework.data.repository.query.QueryByExampleExecutor;
 
 /**
  * CrudRepository com definicao de metodo.
+ *
  * @author Johann Guerra
  */
 public interface LocalizacaoRepository extends CrudRepository<Localizacao, Long>, QueryByExampleExecutor<Localizacao> {
