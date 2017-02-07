@@ -26,8 +26,6 @@ import org.springframework.data.repository.query.QueryByExampleExecutor;
 
 /**
  * CrudRepository com definicao de metodo.
- * @param <T> tipo da conta
- * @param <ID> tipo da chave da conta
  * @author Johann Guerra
  */
 public interface PrestadorDeServicoRepository extends CrudRepository<PrestadorDeServico, Long>, QueryByExampleExecutor<PrestadorDeServico> {
