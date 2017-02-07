@@ -21,7 +21,6 @@ import javax.persistence.EntityManager;
 
 import br.edu.ifrn.findyourpro.dominio.QUsuario;
 import br.edu.ifrn.findyourpro.dominio.Usuario;
-
 import com.querydsl.jpa.JPQLQueryFactory;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
@@ -30,14 +29,14 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
  * @author Johann Guerra
  */
 public class UsuarioRepositoryImpl implements UsuarioRepositoryCustom {
-	
+
 	private final EntityManager entityManager;
 
 	@Inject
 	public UsuarioRepositoryImpl(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
-	
+
 	@Override
 	public Usuario findByLogin(String login) {
 

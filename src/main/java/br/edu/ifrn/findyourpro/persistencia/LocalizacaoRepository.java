@@ -25,8 +25,10 @@ import org.springframework.data.repository.query.QueryByExampleExecutor;
 
 /**
  * CrudRepository com definicao de metodo.
+ * @param <T> tipo da conta
+ * @param <ID> tipo da chave da conta
  * @author Johann Guerra
  */
-public interface LocalizacaoRepository <T extends Localizacao, ID extends Serializable> extends CrudRepository<T, ID>, QueryByExampleExecutor<T> {
+public interface LocalizacaoRepository<T extends Localizacao, ID extends Serializable> extends CrudRepository<T, ID>, QueryByExampleExecutor<T> {
 	T findByLatitudeAndLongitude(String logintude, String latitude);
 }

@@ -28,8 +28,8 @@ import br.edu.ifrn.findyourpro.dominio.Usuario;
 @Named
 public class AvaliacaoFabrica {
 
-	private static final int NOTA1=10;
-	private static final int NOTA2=5;
+	private static final int NOTA1 = 10;
+	private static final int NOTA2 = 5;
 
 	@Inject
 	private AvaliacaoRepository avaliacaoRepository;
@@ -43,7 +43,7 @@ public class AvaliacaoFabrica {
 	public Avaliacao avaliacao(int nota, Servico servico, Usuario cliente) {
 		Avaliacao avaliacao = this.avaliacaoRepository.findByNotaAndServicoAndUsuario(nota, servico, cliente);
 		if (avaliacao == null) {
-			Date data= new Date();
+			Date data = new Date();
 			avaliacao = Avaliacao.builder()
 				.servico(servico)
 				.cliente(cliente)

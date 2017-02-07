@@ -16,15 +16,17 @@
 
 package br.edu.ifrn.findyourpro.persistencia;
 
-import br.edu.ifrn.findyourpro.dominio.Servico;
-
 import java.io.Serializable;
+
+import br.edu.ifrn.findyourpro.dominio.Servico;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.QueryByExampleExecutor;
 
 /**
  * CrudRepository com definicao de metodo.
+ * @param <T> tipo da conta
+ * @param <ID> tipo da chave da conta
  * @author Johann Guerra
  */
 public interface ServicoRepository<T extends Servico, ID extends Serializable> extends CrudRepository<T, ID>, QueryByExampleExecutor<T> {

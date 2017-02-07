@@ -20,7 +20,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 
 /**
  * Classe main.
- * @author johan
+ * @author Johann Guerra
  */
 public class FindYourProApplicationMain {
 
