@@ -37,14 +37,14 @@ class UsuarioFabrica {
 	@Inject
 	private LocalizacaoFabrica localizacaoFabrica;
 
-	public Usuario usuario(String login, String nome, String senha, Localizacao localizacao) {
+	public Usuario usuario(String login, String nome, String senha, Localizacao endereco) {
 		Usuario usuario = this.usuarioRepository.findByLogin(login);
 		if (usuario == null) {
 		usuario = Usuario.builder()
 			.login(login)
 			.nome(nome)
 			.senha(senha)
-			.localizacao(localizacao)
+			.endereco(endereco)
 			.build();
 		this.usuarioRepository.save(usuario);
 		}
