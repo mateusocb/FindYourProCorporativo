@@ -41,7 +41,7 @@ public class AvaliacaoFabrica {
 	private UsuarioFabrica usuarioFabrica;
 
 	public Avaliacao avaliacao(int nota, Servico servico, Usuario cliente) {
-		Avaliacao avaliacao = this.avaliacaoRepository.findByNotaAndServicoAndUsuario(nota, servico, cliente);
+		Avaliacao avaliacao = this.avaliacaoRepository.findByNotaAndServicoAndCliente(nota, servico, cliente);
 		if (avaliacao == null) {
 			Date data = new Date();
 			avaliacao = Avaliacao.builder()
