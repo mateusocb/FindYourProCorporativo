@@ -53,7 +53,7 @@ public class LocalizacaoFabrica {
 	public Localizacao midway() {
 		return localizacao(MIDWAY, MIDWAY1);
 	}
-        
+
         public Localizacao marEsol() {
 		return localizacao(MARESOL1, MARESOL2);
 	}
