@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 FindYourPro.
+ * Copyright 2016-2016 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package br.edu.ifrn.findyourpro.persistencia;
 
 import br.edu.ifrn.findyourpro.dominio.Instituicao;
@@ -20,9 +21,9 @@ import br.edu.ifrn.findyourpro.dominio.Instituicao;
 import org.springframework.data.repository.CrudRepository;
 
 /**
- *
- * @author johan
+ * CrudRepository com definicao de metodo.
+ * @author Johann Guerra
  */
-public interface InstituicaoRepository extends CrudRepository<Instituicao, Long>{
+public interface InstituicaoRepository extends CrudRepository<Instituicao, Long> {
 	Instituicao findByCnpj(String cnpj);
 }

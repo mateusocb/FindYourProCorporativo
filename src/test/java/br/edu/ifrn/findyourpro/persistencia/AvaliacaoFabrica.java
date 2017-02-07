@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 FindYourPro.
+ * Copyright 2016-2016 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package br.edu.ifrn.findyourpro.persistencia;
 
 import javax.inject.Inject;
@@ -23,26 +24,21 @@ import br.edu.ifrn.findyourpro.dominio.Servico;
 import br.edu.ifrn.findyourpro.dominio.Usuario;
 import java.util.Date;
 
-/**
- *
- * @author johan
- */
-
 @Named
 public class AvaliacaoFabrica {
-	
+
 	private static final int NOTA1 = 10;
 	private static final int NOTA2 = 5;
 
 	@Inject
 	private AvaliacaoRepository avaliacaoRepository;
-	
+
 	@Inject
-	private ServicoFabrica servicoRepository;
-	
+	private ServicoFabrica servicoFabrica;
+
 	@Inject
-	private UsuarioFabrica usuarioRepository;
-	
+	private UsuarioFabrica usuarioFabrica;
+
 	public Avaliacao avaliacao(int nota, Servico servico, Usuario cliente) {
 		Avaliacao avaliacao = this.avaliacaoRepository.findByNotaAndServicoAndUsuario(nota, servico, cliente);
 		if (avaliacao == null) {
@@ -59,10 +55,10 @@ public class AvaliacaoFabrica {
 	}
 
 	public Avaliacao nota10() {
-		return avaliacao(NOTA1,this.servicoRepository.eletricista(), this.usuarioRepository.johann());
+		return avaliacao(NOTA1,this.servicoFabrica.eletrico(), this.usuarioFabrica.johann());
 	}
 
 	public Avaliacao nota5() {
-		return avaliacao(NOTA1,this.servicoRepository.eletricista(), this.usuarioRepository.johann());
+		return avaliacao(NOTA1,this.servicoFabrica.encanamento(), this.usuarioFabrica.johann());
 	}
 }

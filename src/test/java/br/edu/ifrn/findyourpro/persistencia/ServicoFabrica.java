@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 FindYourPro.
+ * Copyright 2016-2016 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,12 +13,42 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package br.edu.ifrn.findyourpro.persistencia;
 
-/**
- *
- * @author johan
- */
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import br.edu.ifrn.findyourpro.dominio.Servico;
+
+@Named
 class ServicoFabrica {
-	
+
+	private static final String TIPO1 = "eletricista";
+	private static final String TIPO2 = "encanador";
+	private static final String DESCRICAO1 = "luz";
+	private static final String DESCRICAO2 = "agua";
+
+	@Inject
+	private ServicoRepository servicoRepository;
+
+	public Servico servico(String tipo, String descricao) {
+		Servico servico = this.servicoRepository.findByTipoAndDescricao(tipo, descricao);
+		if (servico == null) {
+			servico = Servico.builder()
+				.tipo(tipo)
+				.descricao(descricao)
+				.build();
+			this.servicoRepository.save(servico);
+		}
+		return servico;
+	}
+
+	public Servico eletrico() {
+		return servico(TIPO1, DESCRICAO1);
+	}
+
+	public Servico encanamento() {
+		return servico(TIPO2, DESCRICAO2);
+	}
 }

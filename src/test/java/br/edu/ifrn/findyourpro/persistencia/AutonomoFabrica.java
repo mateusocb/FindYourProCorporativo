@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 FindYourPro.
+ * Copyright 2016-2016 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,12 +13,44 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package br.edu.ifrn.findyourpro.persistencia;
 
-/**
- *
- * @author johan
- */
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import br.edu.ifrn.findyourpro.dominio.Usuario;
+import br.edu.ifrn.findyourpro.dominio.Autonomo;
+
+@Named
 public class AutonomoFabrica {
-	
+
+	private static final String CPF1 = "400";
+	private static final String CPF2 = "500";
+
+	@Inject
+	private AutonomoRepository autonomoRepository;
+
+	@Inject
+	private UsuarioFabrica usuarioFabrica;
+
+	public Autonomo autonomo(String cpf, Usuario usuario) {
+		Autonomo autonomo = this.autonomoRepository.findByCpf(cpf);
+		if (autonomo == null) {
+			autonomo = Autonomo.builder()
+				.cpf(cpf)
+				.usuario(usuario)
+				.build();
+			this.autonomoRepository.save(autonomo);
+		}
+		return autonomo;
+	}
+
+	public Autonomo eletriscista() {
+		return autonomo(CPF1, this.usuarioFabrica.johann());
+	}
+
+	public Autonomo encanador() {
+		return autonomo(CPF2, this.usuarioFabrica.mateus());
+	}
 }
