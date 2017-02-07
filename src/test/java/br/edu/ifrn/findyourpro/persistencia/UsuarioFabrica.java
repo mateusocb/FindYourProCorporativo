@@ -24,17 +24,27 @@ import br.edu.ifrn.findyourpro.dominio.Usuario;
 @Named
 class UsuarioFabrica {
 
-	private static final String JOHANN = "johann";
-	private static final String MATEUS = "mateus";
+	private static final String LOGIN1 = "jhannn";
+	private static final String LOGIN2 = "mateusocb";
+	private static final String NOME1 = "johann";
+	private static final String NOME2 = "mateus";
+	private static final String SENHA1 = "seilafio";
+	private static final String SENHA2 = "euamojogos";
 
 	@Inject
 	private UsuarioRepository usuarioRepository;
+	
+	@Inject
+	private LocalizacaoFabrica localizacaoFabrica;
 
-	public Usuario usuario(String login) {
+	public Usuario usuario(String login, String nome, String senha, Localizacao localizacao) {
 		Usuario usuario = this.usuarioRepository.findByLogin(login);
 		if (usuario == null) {
 		usuario = Usuario.builder()
 			.login(login)
+			.nome(nome)
+			.senha(senha)
+			.localizacao(localizacao)
 			.build();
 		this.usuarioRepository.save(usuario);
 		}
@@ -42,10 +52,10 @@ class UsuarioFabrica {
 	}
 
 	public Usuario johann() {
-		return usuario(JOHANN);
+		return usuario(LOGIN1, NOME1, SENHA1, this.localizacaoFabrica.ifrn());
 	}
 
 	public Usuario mateus() {
-		return usuario(MATEUS);
+		return usuario(LOGIN1, NOME1, SENHA1, this.localizacaoFabrica.midway());
 	}
 }
