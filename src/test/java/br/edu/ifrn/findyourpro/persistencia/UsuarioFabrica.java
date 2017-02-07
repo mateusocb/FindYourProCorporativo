@@ -56,6 +56,6 @@ class UsuarioFabrica {
 	}
 
 	public Usuario mateus() {
-		return usuario(LOGIN1, NOME1, SENHA1, this.localizacaoFabrica.midway());
+		return usuario(LOGIN2, NOME2, SENHA2, this.localizacaoFabrica.midway());
 	}
 }
