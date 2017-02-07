@@ -16,19 +16,20 @@
 
 package br.edu.ifrn.findyourpro.persistencia;
 
+import java.util.Date;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.edu.ifrn.findyourpro.dominio.Avaliacao;
 import br.edu.ifrn.findyourpro.dominio.Servico;
 import br.edu.ifrn.findyourpro.dominio.Usuario;
-import java.util.Date;
 
 @Named
 public class AvaliacaoFabrica {
 
-	private static final int NOTA1 = 10;
-	private static final int NOTA2 = 5;
+	private static final int NOTA1=10;
+	private static final int NOTA2=5;
 
 	@Inject
 	private AvaliacaoRepository avaliacaoRepository;
@@ -55,10 +56,10 @@ public class AvaliacaoFabrica {
 	}
 
 	public Avaliacao nota10() {
-		return avaliacao(NOTA1,this.servicoFabrica.eletrico(), this.usuarioFabrica.johann());
+		return avaliacao(NOTA1, this.servicoFabrica.eletrico(), this.usuarioFabrica.johann());
 	}
 
 	public Avaliacao nota5() {
-		return avaliacao(NOTA1,this.servicoFabrica.encanamento(), this.usuarioFabrica.johann());
+		return avaliacao(NOTA1, this.servicoFabrica.encanamento(), this.usuarioFabrica.johann());
 	}
 }

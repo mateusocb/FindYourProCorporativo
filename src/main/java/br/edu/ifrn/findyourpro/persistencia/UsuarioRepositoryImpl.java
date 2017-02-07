@@ -29,7 +29,7 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
  * CrudRepository com definicao de metodo.
  * @author Johann Guerra
  */
-public class UsuarioRepositoryImpl implements UsuarioRepositoryCustom{
+public class UsuarioRepositoryImpl implements UsuarioRepositoryCustom {
 	
 	private final EntityManager entityManager;
 

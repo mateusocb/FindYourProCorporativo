@@ -34,7 +34,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = FindYourProApplication.class, webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 public class UsuarioRepositoryIT {
-	
+
 	@Inject
 	private UsuarioRepository usuarioRepository;
 
@@ -56,7 +56,7 @@ public class UsuarioRepositoryIT {
 		assertThat(usuario.getId())
 			.isNotNull();
 	}
-	
+
 	@Test
 	public void deletarUm() {
 		// cria o ambiente de teste

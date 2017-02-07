@@ -24,6 +24,6 @@ import org.springframework.data.repository.CrudRepository;
  * CrudRepository com definicao de metodo.
  * @author Johann Guerra
  */
-public interface UsuarioRepository extends CrudRepository<Usuario, Long>, UsuarioRepositoryCustom{
-	
+public interface UsuarioRepository extends CrudRepository<Usuario, Long>, UsuarioRepositoryCustom {
+
 }

@@ -28,6 +28,6 @@ import org.springframework.data.repository.query.QueryByExampleExecutor;
  * CrudRepository com definicao de metodo.
  * @author Johann Guerra
  */
-public interface PrestadorDeServicoRepository<T extends PrestadorDeServico, ID extends Serializable> extends CrudRepository<T, ID>, QueryByExampleExecutor<T>{
+public interface PrestadorDeServicoRepository<T extends PrestadorDeServico, ID extends Serializable> extends CrudRepository<T, ID>, QueryByExampleExecutor<T> {
 	T findByUsuario(Usuario usuario);
 }
