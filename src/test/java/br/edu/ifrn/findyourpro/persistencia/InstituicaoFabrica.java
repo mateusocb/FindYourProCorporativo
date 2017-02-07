@@ -26,7 +26,7 @@ public class InstituicaoFabrica {
 	private static final String CNPJ1 = "400";
 	private static final String CNPJ2 = "500";
 	private static final String NOMEFANTASIA1 = "CHITOS";
-	private static final String NOMEFANTASIA1 = "BOKUS";
+	private static final String NOMEFANTASIA2 = "BOKUS";
 
 	@Inject
 	private InstituicaoRepository instituicaoRepository;
@@ -43,7 +43,7 @@ public class InstituicaoFabrica {
 			instituicao = Instituicao.builder()
 				.cnpj(cnpj)
 				.nomeFantasia(nomeFantasia)
-				.user(user)
+				.usuario(usuario)
 				.endereco(endereco)
 				.build();
 			this.instituicaoRepository.save(instituicao);
