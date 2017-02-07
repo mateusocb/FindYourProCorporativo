@@ -25,15 +25,26 @@ import br.edu.ifrn.findyourpro.dominio.Instituicao;
 public class InstituicaoFabrica {
 	private static final String CNPJ1 = "400";
 	private static final String CNPJ2 = "500";
+	private static final String NOMEFANTASIA1 = "CHITOS";
+	private static final String NOMEFANTASIA1 = "BOKUS";
 
 	@Inject
 	private InstituicaoRepository instituicaoRepository;
+		
+	@Inject
+	private LocalizacaoFabrica usuarioFabrica;
+	
+	@Inject
+	private LocalizacaoFabrica localizacaoFabrica;
 
-	public Instituicao instituicao(String cnpj) {
+	public Instituicao instituicao(String cnpj, String nomeFantasia, Usuario user, Localizacao endereco) {
 		Instituicao instituicao = this.instituicaoRepository.findByCnpj(cnpj);
 		if (instituicao == null) {
 			instituicao = Instituicao.builder()
 				.cnpj(cnpj)
+				.nomeFantasia(nomeFantasia)
+				.user(user)
+				.endereco(endereco)
 				.build();
 			this.instituicaoRepository.save(instituicao);
 		}
@@ -41,10 +52,10 @@ public class InstituicaoFabrica {
 	}
 
 	public Instituicao ifrn() {
-		return instituicao(CNPJ1);
+		return instituicao(CNPJ1, NOMEFANTASIA1, this.usuarioFabrica.johann(), this.localizacaoFabrica.ifrn());
 	}
 
 	public Instituicao ufrn() {
-		return instituicao(CNPJ2);
+		return instituicao(CNPJ2, NOMEFANTASIA2, this.usuarioFabrica.mateus(), this.localizacaoFabrica.midway());
 	}
 }
