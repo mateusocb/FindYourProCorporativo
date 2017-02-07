@@ -20,6 +20,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.edu.ifrn.findyourpro.dominio.Usuario;
+import br.edu.ifrn.findyourpro.dominio.Localizacao;
 
 @Named
 class UsuarioFabrica {
