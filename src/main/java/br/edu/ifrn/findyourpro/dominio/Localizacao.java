@@ -75,10 +75,10 @@ public class Localizacao implements Serializable, Comparable<Localizacao> {
 	@Column(nullable = true, name = "cep")
 	private String cep;
 
-	@Column(nullable = true, name = "latitude")
+	@Column(nullable = false, name = "latitude")
 	private String latitude;
 
-	@Column(nullable = true, name = "longitude")
+	@Column(nullable = false, name = "longitude")
 	private String longitude;
 
 	@Column(nullable = true, name = "complemento")
