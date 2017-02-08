@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package br.edu.ifrn.findyourpro.persistencia;
 
 import javax.inject.Inject;
@@ -28,7 +27,7 @@ public class LocalizacaoFabrica {
 	public final static String IFRN1 = "250";
 	public final static String MIDWAY = "100";
 	public final static String MIDWAY1 = "255";
-        public final static String MARESOL1 = "100";
+	public final static String MARESOL1 = "100";
 	public final static String MARESOL2 = "260";
 
 	@Inject
@@ -38,9 +37,9 @@ public class LocalizacaoFabrica {
 		Localizacao localizacao = this.localizacaoRepository.findByLatitudeAndLongitude(latitude, longitude);
 		if (localizacao == null) {
 			localizacao = Localizacao.builder()
-				.latitude(latitude)
-				.longitude(longitude)
-				.build();
+					.latitude(latitude)
+					.longitude(longitude)
+					.build();
 			this.localizacaoRepository.save(localizacao);
 		}
 		return localizacao;
@@ -54,7 +53,7 @@ public class LocalizacaoFabrica {
 		return localizacao(MIDWAY, MIDWAY1);
 	}
 
-        public Localizacao marEsol() {
+	public Localizacao marEsol() {
 		return localizacao(MARESOL1, MARESOL2);
 	}
 }

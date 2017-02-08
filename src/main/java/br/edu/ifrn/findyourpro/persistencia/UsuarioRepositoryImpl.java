@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package br.edu.ifrn.findyourpro.persistencia;
 
 import javax.inject.Inject;
@@ -31,26 +30,26 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
  */
 public class UsuarioRepositoryImpl implements UsuarioRepositoryCustom {
 
-    private final EntityManager entityManager;
+	private final EntityManager entityManager;
 
-    @Inject
-    public UsuarioRepositoryImpl(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
+	@Inject
+	public UsuarioRepositoryImpl(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
 
-    @Override
-    public Usuario findByLogin(String login) {
+	@Override
+	public Usuario findByLogin(String login) {
 
-        QUsuario qUsuario = QUsuario.usuario;
-        JPQLQueryFactory factory = new JPAQueryFactory(this.entityManager);
+		QUsuario qUsuario = QUsuario.usuario;
+		JPQLQueryFactory factory = new JPAQueryFactory(this.entityManager);
 
-        // soma todos os lancamentos de credito do dono na conta patrimonio
-        Usuario result = factory
-                .from(qUsuario)
-                .where(qUsuario.login.eq(login))
-                .select(qUsuario)
-                .fetchOne();
+		// soma todos os lancamentos de credito do dono na conta patrimonio
+		Usuario result = factory
+				.from(qUsuario)
+				.where(qUsuario.login.eq(login))
+				.select(qUsuario)
+				.fetchOne();
 
-        return result;
-    }
+		return result;
+	}
 }
