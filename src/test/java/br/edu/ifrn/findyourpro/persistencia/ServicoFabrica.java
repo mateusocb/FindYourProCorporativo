@@ -22,7 +22,7 @@ import javax.inject.Named;
 import br.edu.ifrn.findyourpro.dominio.Servico;
 
 @Named
-class ServicoFabrica {
+public class ServicoFabrica {
 
 	private static final String TIPO1 = "eletricista";
 	private static final String TIPO2 = "encanador";

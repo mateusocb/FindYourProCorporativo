@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 FindYourPro.
+ * Copyright 2016-2016 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,12 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package br.edu.ifrn.findyourpro.servico;
 
+import javax.inject.Named;
+
+import br.edu.ifrn.findyourpro.dominio.Usuario;
+
 /**
- *
- * @author nudes
+ * Servico de Usuario.
+ * @author Johann Guerra
  */
-public class UsuarioServico {
+@Named
+public class UsuarioServico extends CrudServico<Usuario, Long> {
 	
 }

@@ -23,7 +23,7 @@ import br.edu.ifrn.findyourpro.dominio.Localizacao;
 import br.edu.ifrn.findyourpro.dominio.Usuario;
 
 @Named
-class UsuarioFabrica {
+public class UsuarioFabrica {
 
 	private static final String LOGIN1 = "jhannn";
 	private static final String LOGIN2 = "mateusocb";
