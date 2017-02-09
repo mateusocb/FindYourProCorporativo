@@ -16,7 +16,7 @@ spring:
     show-sql: true
 jsf:
   primefaces:
-    theme: aristo
+    theme: dot-luv
 info:
   url: @project.url@
   version: @project.version@
