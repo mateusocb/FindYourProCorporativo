@@ -17,7 +17,6 @@
 package br.edu.ifrn.findyourpro;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
 
 /**
  * Classe main.
@@ -27,11 +26,5 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 public class FindYourProApplication {
 
 	protected FindYourProApplication() {
-	}
-
-	public static void main(String[] args) {
-		new SpringApplicationBuilder()
-			.sources(FindYourProApplication.class)
-			.run(args);
 	}
 }

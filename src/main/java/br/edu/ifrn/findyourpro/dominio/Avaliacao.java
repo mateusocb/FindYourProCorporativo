@@ -74,7 +74,7 @@ public class Avaliacao implements Serializable, Comparable<Avaliacao> {
 	@Column(nullable = false, name = "nota")
 	private int nota;
 
-	@Column(nullable = false, name = "descricao")
+	@Column(nullable = true, name = "descricao")
 	private String descricao;
 
 	@Temporal(TemporalType.TIMESTAMP)
