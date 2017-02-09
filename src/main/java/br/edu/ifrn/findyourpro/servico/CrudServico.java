@@ -29,7 +29,7 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @param <T> tipo da entidade
  * @param <ID> tipo do id da entidade
- * @author Marcelo Fernandes
+ * @author Johann Guerra
  */
 @Transactional(readOnly = true)
 public class CrudServico<T extends Object, ID extends Serializable> {
