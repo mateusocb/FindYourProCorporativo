@@ -57,7 +57,7 @@
             <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
         </goals>
         <properties>
-            <exec.args>-Duser.country=BR -Duser.language=pt_BR -classpath %classpath br.edu.ifrn.findyourpro.FindYourProApplication</exec.args>
+            <exec.args>-Duser.country=BR -Duser.language=pt_BR -classpath %classpath br.edu.ifrn.findyourpro.FindYourProApplicationMain</exec.args>
             <exec.executable>java</exec.executable>
         </properties>
     </action>
@@ -86,7 +86,7 @@
             <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
         </goals>
         <properties>
-            <exec.args>-Duser.country=BR -Duser.language=pt_BR -classpath %classpath br.edu.ifrn.findyourpro.FindYourProApplication</exec.args>
+            <exec.args>-Duser.country=BR -Duser.language=pt_BR -classpath %classpath br.edu.ifrn.findyourpro.FindYourProApplicationMain</exec.args>
             <exec.executable>java</exec.executable>
         </properties>
     </action>
