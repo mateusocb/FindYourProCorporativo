@@ -26,5 +26,5 @@ import br.edu.ifrn.findyourpro.dominio.Usuario;
  */
 @Named
 public class UsuarioServico extends CrudServico<Usuario, Long> {
-	
+
 }
