@@ -31,7 +31,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = FindYourProApplication.class, webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-public class ServicoRepositoryIT {
+public class ServicoServicoIT {
 
 	@Inject
 	private ServicoServico servicoServico;

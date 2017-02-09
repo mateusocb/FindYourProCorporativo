@@ -19,8 +19,8 @@ package br.edu.ifrn.findyourpro.servico;
 import javax.inject.Inject;
 
 import br.edu.ifrn.findyourpro.FindYourProApplication;
-import br.edu.ifrn.findyourpro.dominio.Instituicao;
-import br.edu.ifrn.findyourpro.persistencia.InstituicaoFabrica;
+import br.edu.ifrn.findyourpro.dominio.Localizacao;
+import br.edu.ifrn.findyourpro.persistencia.LocalizacaoFabrica;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -31,40 +31,40 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = FindYourProApplication.class, webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-public class InstituicaoRepositoryIT {
+public class LocalizacaoServicoIT {
 
 	@Inject
-	private InstituicaoServico instituicaoServico;
+	private LocalizacaoServico localizacaoServico;
 
 	@Inject
-	private InstituicaoFabrica instituicaoFabrica;
+	private LocalizacaoFabrica localizacaoFabrica;
 
 	@Test
 	public void repositorioNaoEhNulo() {
-		assertThat(this.instituicaoServico)
+		assertThat(this.localizacaoServico)
 				.isNotNull();
 	}
 
 	@Test
 	public void salvarUm() {
 		// executa a operacao a ser testada
-		Instituicao instituicao = this.instituicaoFabrica.ufrn();
+		Localizacao localizacao = this.localizacaoFabrica.ifrn();
 
 		// verifica o efeito da execucao da operacao a ser testada
-		assertThat(instituicao.getId())
+		assertThat(localizacao.getId())
 				.isNotNull();
 	}
 
 	@Test
 	public void deletarUm() {
 		// cria o ambiente de teste
-		Instituicao instituicao = this.instituicaoFabrica.ifrn();
+		Localizacao localizacao = this.localizacaoFabrica.marEsol();
 
 		// executa a operacao a ser testada
-		this.instituicaoServico.delete(instituicao);
+		this.localizacaoServico.delete(localizacao);
 
 		// verifica o efeito da execucao da operacao a ser testada
-		assertThat(this.instituicaoServico.findOne(instituicao.getId()))
+		assertThat(this.localizacaoServico.findOne(localizacao.getId()))
 				.isNull();
 	}
 }

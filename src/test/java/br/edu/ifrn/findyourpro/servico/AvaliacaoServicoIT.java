@@ -19,8 +19,8 @@ package br.edu.ifrn.findyourpro.servico;
 import javax.inject.Inject;
 
 import br.edu.ifrn.findyourpro.FindYourProApplication;
-import br.edu.ifrn.findyourpro.dominio.Usuario;
-import br.edu.ifrn.findyourpro.persistencia.UsuarioFabrica;
+import br.edu.ifrn.findyourpro.dominio.Avaliacao;
+import br.edu.ifrn.findyourpro.persistencia.AvaliacaoFabrica;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -31,40 +31,40 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = FindYourProApplication.class, webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-public class UsuarioRepositoryIT {
+public class AvaliacaoServicoIT {
 
 	@Inject
-	private UsuarioServico usuarioServico;
+	private AvaliacaoServico avaliacaoServico;
 
 	@Inject
-	private UsuarioFabrica usuarioFabrica;
+	private AvaliacaoFabrica avaliacaoFabrica;
 
 	@Test
 	public void repositorioNaoEhNulo() {
-		assertThat(this.usuarioServico)
+		assertThat(this.avaliacaoServico)
 				.isNotNull();
 	}
 
 	@Test
 	public void salvarUm() {
 		// executa a operacao a ser testada
-		Usuario usuario = this.usuarioFabrica.johann();
+		Avaliacao avaliacao = this.avaliacaoFabrica.nota10();
 
 		// verifica o efeito da execucao da operacao a ser testada
-		assertThat(usuario.getId())
+		assertThat(avaliacao.getId())
 				.isNotNull();
 	}
 
 	@Test
 	public void deletarUm() {
 		// cria o ambiente de teste
-		Usuario usuario = this.usuarioFabrica.mateus();
+		Avaliacao avaliacao = this.avaliacaoFabrica.nota5();
 
 		// executa a operacao a ser testada
-		this.usuarioServico.delete(usuario);
+		this.avaliacaoServico.delete(avaliacao);
 
 		// verifica o efeito da execucao da operacao a ser testada
-		assertThat(this.usuarioServico.findOne(usuario.getId()))
+		assertThat(this.avaliacaoServico.findOne(avaliacao.getId()))
 				.isNull();
 	}
 }
