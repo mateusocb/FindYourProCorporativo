@@ -16,7 +16,7 @@ spring:
     show-sql: true
 jsf:
   primefaces:
-    theme: dot-luv
+    theme: afterwork
 info:
   url: @project.url@
   version: @project.version@
