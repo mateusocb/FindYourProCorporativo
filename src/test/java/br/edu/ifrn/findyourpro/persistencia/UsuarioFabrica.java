@@ -62,7 +62,7 @@ public class UsuarioFabrica {
 	public Usuario mateus() {
 		return usuario(LOGIN2, NOME2, SENHA2, this.localizacaoFabrica.midway());
 	}
-	
+
 	public Usuario wendell() {
 		return usuario(LOGIN3, NOME3, SENHA3, this.localizacaoFabrica.ifrn());
 	}
