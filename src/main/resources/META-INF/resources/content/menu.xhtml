@@ -4,19 +4,17 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
     <p:menubar>
-        <p:menuitem value="Dono" ajax="true" update="@form"
-                    actionListener="#{contentMBean.setPage('dono')}" />
-        <p:menuitem value="Categoria" ajax="true" update="@form"
-                    actionListener="#{contentMBean.setPage('categoria')}" />
-        <p:menuitem value="Conta Crédito" ajax="true" update="@form"
-                    actionListener="#{contentMBean.setPage('contaCredito')}" />
-        <p:menuitem value="Conta Débito" ajax="true" update="@form"
-                    actionListener="#{contentMBean.setPage('contaDebito')}" />
-        <p:menuitem value="Conta Patrimônio" ajax="true" update="@form"
-                    actionListener="#{contentMBean.setPage('contaPatrimonio')}" />
-        <p:menuitem value="Valor Inicial" ajax="true" update="@form"
-                    actionListener="#{contentMBean.setPage('valorInicialDoDonoNaContaPatrimonio')}" />
-        <p:menuitem value="Lançamento" ajax="true" update="@form"
-                    actionListener="#{contentMBean.setPage('lancamento')}" />
+        <p:menuitem value="Autônomos" ajax="true" update="@form"
+                    actionListener="#{contentMBean.setPage('autonomo')}" />
+        <p:menuitem value="Instituição" ajax="true" update="@form"
+                    actionListener="#{contentMBean.setPage('instituicao')}" />
+        <p:menuitem value="Serviço" ajax="true" update="@form"
+                    actionListener="#{contentMBean.setPage('servico')}" />
+        <p:menuitem value="Avaliação" ajax="true" update="@form"
+                    actionListener="#{contentMBean.setPage('avaliacao')}" />
+        <p:menuitem value="Usuário" ajax="true" update="@form"
+                    actionListener="#{contentMBean.setPage('usuario')}" />
+        <p:menuitem value="Localização" ajax="true" update="@form"
+                    actionListener="#{contentMBean.setPage('localizacao')}" />
     </p:menubar>
 </ui:composition>

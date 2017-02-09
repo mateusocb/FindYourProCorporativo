@@ -5,25 +5,25 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:c="http://ifrn.edu.br/findyourpro">
-    <c:crud title="Categoria" managedBean="#{categoriaCrudMBean}">
+    <c:crud title="Localização" managedBean="#{localizacaoCrudMBean}">
         <ui:define name="listColumns">
-            <p:column headerText="Descrição" sortBy="#{bean.descricao}" filterBy="#{bean.descricao}" >
+            <p:column headerText="Coordenadas" sortBy="#{bean.descricao}" filterBy="#{bean.descricao}" >
                 <h:outputText value="#{bean.descricao}" />
             </p:column>
         </ui:define>
         <ui:define name="detail">
             <h:panelGrid columns="2" cellpadding="3">
-                <c:text readonly="true" value="#{categoriaCrudMBean.bean.descricao}" label="Descrição" />
+                <c:text readonly="true" value="#{localizacaoCrudMBean.bean.descricao}" label="Descrição" />
             </h:panelGrid>
         </ui:define>
         <ui:define name="insert">
             <h:panelGrid columns="2" cellpadding="3">
-                <c:text id="descricao" required="true" value="#{categoriaCrudMBean.bean.descricao}" label="Descrição" />
+                <c:text id="descricao" required="true" value="#{localizacaoCrudMBean.bean.descricao}" label="Descrição" />
             </h:panelGrid>                
         </ui:define>
         <ui:define name="update">
             <h:panelGrid columns="2" cellpadding="3">
-                <c:text required="true" value="#{categoriaCrudMBean.bean.descricao}" label="Descrição" />
+                <c:text required="true" value="#{localizacaoCrudMBean.bean.descricao}" label="Descrição" />
             </h:panelGrid>                
         </ui:define>
     </c:crud>
