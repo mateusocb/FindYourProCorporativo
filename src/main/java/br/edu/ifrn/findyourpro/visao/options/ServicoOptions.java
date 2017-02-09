@@ -33,7 +33,7 @@ public class ServicoOptions extends Options<Servico, Long> {
 
 	@Override
 	public String label(Servico e) {
-		return e.getTipo()+": "+e.getDescricao();
+		return e.getTipo() + ": " + e.getDescricao();
 	}
 
 	@Override
