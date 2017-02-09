@@ -61,7 +61,7 @@ public class UsuarioRepositoryIT {
 	@Test
 	public void deletarUm() {
 		// cria o ambiente de teste
-		Usuario usuario = this.usuarioFabrica.mateus();
+		Usuario usuario = this.usuarioFabrica.wendell();
 
 		// executa a operacao a ser testada
 		this.usuarioRepository.delete(usuario);

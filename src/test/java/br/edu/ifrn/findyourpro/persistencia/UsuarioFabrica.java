@@ -27,10 +27,13 @@ public class UsuarioFabrica {
 
 	private static final String LOGIN1 = "jhannn";
 	private static final String LOGIN2 = "mateusocb";
+	private static final String LOGIN3 = "w3ndell";
 	private static final String NOME1 = "johann";
 	private static final String NOME2 = "mateus";
+	private static final String NOME3 = "wendell";
 	private static final String SENHA1 = "seilafio";
-	private static final String SENHA2 = "euamojogos";
+	private static final String SENHA2 = "soufodao";
+	private static final String SENHA3 = "euamojogos";
 
 	@Inject
 	private UsuarioRepository usuarioRepository;
@@ -58,5 +61,9 @@ public class UsuarioFabrica {
 
 	public Usuario mateus() {
 		return usuario(LOGIN2, NOME2, SENHA2, this.localizacaoFabrica.midway());
+	}
+	
+	public Usuario wendell() {
+		return usuario(LOGIN3, NOME3, SENHA3, this.localizacaoFabrica.ifrn());
 	}
 }
