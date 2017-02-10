@@ -55,6 +55,11 @@
                 <artifactId>querydsl-jpa</artifactId>
                 <version>${querydsl.version}</version>
             </dependency>    
+			<dependency>
+                <groupId>org.primefaces.themes</groupId>
+                <artifactId>all-themes</artifactId>
+                <version>${all-themes.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -102,6 +107,10 @@
         <dependency>
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-jpa</artifactId>
+        </dependency>
+		<dependency>
+            <groupId>org.primefaces.themes</groupId>
+            <artifactId>all-themes</artifactId>
         </dependency>
     </dependencies>
 
@@ -266,4 +275,12 @@
             <timezone>-3</timezone>
         </developer>
     </developers>
+	
+	<repositories>
+        <repository>  
+            <id>primefaces-maven-repository</id>  
+            <name>PrimeFaces Maven Repository</name>  
+            <url>http://repository.primefaces.org</url>  
+        </repository>        
+    </repositories>
 </project>
