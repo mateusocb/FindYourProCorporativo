@@ -55,7 +55,7 @@
                 <artifactId>querydsl-jpa</artifactId>
                 <version>${querydsl.version}</version>
             </dependency>    
-			<dependency>
+	    <dependency>
                 <groupId>org.primefaces.themes</groupId>
                 <artifactId>all-themes</artifactId>
                 <version>${all-themes.version}</version>
@@ -108,7 +108,7 @@
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-jpa</artifactId>
         </dependency>
-		<dependency>
+	<dependency>
             <groupId>org.primefaces.themes</groupId>
             <artifactId>all-themes</artifactId>
         </dependency>
@@ -276,7 +276,7 @@
         </developer>
     </developers>
 	
-	<repositories>
+    <repositories>
         <repository>  
             <id>primefaces-maven-repository</id>  
             <name>PrimeFaces Maven Repository</name>  
