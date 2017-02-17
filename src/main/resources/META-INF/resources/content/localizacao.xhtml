@@ -7,23 +7,51 @@
       xmlns:c="http://ifrn.edu.br/findyourpro">
     <c:crud title="Localização" managedBean="#{localizacaoCrudMBean}">
         <ui:define name="listColumns">
-            <p:column headerText="Coordenadas" sortBy="#{bean.descricao}" filterBy="#{bean.descricao}" >
-                <h:outputText value="#{bean.descricao}" />
+            <p:column headerText="Latitude" sortBy="#{bean.latitude}" filterBy="#{bean.latitude}" >
+                <h:outputText value="#{bean.latitude}" />
+            </p:column>
+			<p:column headerText="Longitude" sortBy="#{bean.longitude}" filterBy="#{bean.longitude}" >
+                <h:outputText value="#{bean.longitude}" />
             </p:column>
         </ui:define>
         <ui:define name="detail">
             <h:panelGrid columns="2" cellpadding="3">
-                <c:text readonly="true" value="#{localizacaoCrudMBean.bean.descricao}" label="Descrição" />
+                <c:text readonly="true" value="#{localizacaoCrudMBean.bean.rua}" label="Rua" />
+				<c:text readonly="true" value="#{localizacaoCrudMBean.bean.numero}" label="Número" />
+				<c:text readonly="true" value="#{localizacaoCrudMBean.bean.complemento}" label="Complemento" />
+				<c:text readonly="true" value="#{localizacaoCrudMBean.bean.bairro}" label="Bairro" />
+				<c:text readonly="true" value="#{localizacaoCrudMBean.bean.cidade}" label="Cidade" />
+				<c:text readonly="true" value="#{localizacaoCrudMBean.bean.estado}" label="Estado" />
+				<c:text readonly="true" value="#{localizacaoCrudMBean.bean.cep}" label="Cep" />
+				<c:text readonly="true" value="#{localizacaoCrudMBean.bean.latitude}" label="Latitude" />
+				<c:text readonly="true" value="#{localizacaoCrudMBean.bean.longitude}" label="Longitude" />
             </h:panelGrid>
         </ui:define>
         <ui:define name="insert">
             <h:panelGrid columns="2" cellpadding="3">
-                <c:text id="descricao" required="true" value="#{localizacaoCrudMBean.bean.descricao}" label="Descrição" />
+                <c:text id="rua" required="false" value="#{localizacaoCrudMBean.bean.rua}" label="Rua" />
+				<c:text id="numero" required="false" value="#{localizacaoCrudMBean.bean.numero}" label="Número" />
+				<c:text id="complemento" required="false" value="#{localizacaoCrudMBean.bean.complemento}" label="Complemento" />
+				<c:text id="bairro" required="false" value="#{localizacaoCrudMBean.bean.bairro}" label="Bairro" />
+				<c:text id="cidade" required="false" value="#{localizacaoCrudMBean.bean.cidade}" label="Cidade" />
+				<c:text id="estado" required="false" value="#{localizacaoCrudMBean.bean.estado}" label="Estado" />
+				<c:text id="cep" required="false" value="#{localizacaoCrudMBean.bean.cep}" label="Cep" />
+				<c:text id="latitude" required="true" value="#{localizacaoCrudMBean.bean.latitude}" label="Latitude" />
+				<c:text id="longitude" required="true" value="#{localizacaoCrudMBean.bean.longitude}" label="Longitude" />
+					
             </h:panelGrid>                
         </ui:define>
         <ui:define name="update">
             <h:panelGrid columns="2" cellpadding="3">
-                <c:text required="true" value="#{localizacaoCrudMBean.bean.descricao}" label="Descrição" />
+                <c:text required="false" value="#{localizacaoCrudMBean.bean.rua}" label="Rua" />
+				<c:text required="false" value="#{localizacaoCrudMBean.bean.numero}" label="Número" />
+				<c:text required="false" value="#{localizacaoCrudMBean.bean.complemento}" label="Complemento" />
+				<c:text required="false" value="#{localizacaoCrudMBean.bean.bairro}" label="Bairro" />
+				<c:text required="false" value="#{localizacaoCrudMBean.bean.cidade}" label="Cidade" />
+				<c:text required="false" value="#{localizacaoCrudMBean.bean.estado}" label="Estado" />
+				<c:text required="false" value="#{localizacaoCrudMBean.bean.cep}" label="Cep" />
+				<c:text required="true" value="#{localizacaoCrudMBean.bean.latitude}" label="Latitude" />
+				<c:text required="true" value="#{localizacaoCrudMBean.bean.longitude}" label="Longitude" />
             </h:panelGrid>                
         </ui:define>
     </c:crud>

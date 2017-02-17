@@ -51,7 +51,7 @@ public class Instituicao extends PrestadorDeServico implements Serializable {
 
 	@OneToOne
 	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_instituicao_localizacao"))
-	private Localizacao endereco;
+	private Localizacao localizacao;
 
 	@Column(nullable = true, name = "telefone")
 	private String telefone;
@@ -64,10 +64,10 @@ public class Instituicao extends PrestadorDeServico implements Serializable {
 
 	@Builder
 	public Instituicao(Long id, Usuario usuario, Set<Servico> servicos,
-			Localizacao endereco, String telefone, String nomeFantasia,
+			Localizacao localizacao, String telefone, String nomeFantasia,
 			String cnpj) {
 		super(id, usuario, servicos);
-		this.endereco = endereco;
+		this.localizacao = localizacao;
 		this.telefone = telefone;
 		this.nomeFantasia = nomeFantasia;
 		this.cnpj = cnpj;

@@ -175,7 +175,7 @@
                 <configuration>
                     <instrumentation>
                         <excludes>
-							<exclude>br/edu/ifrn/findyourpro/ContaApplicationMain.class</exclude>
+							<exclude>br/edu/ifrn/findyourpro/FindYourProApplicationMain.class</exclude>
 							<exclude>br/edu/ifrn/findyourpro/dominio/Q*.class</exclude>                    
                         </excludes>
                     </instrumentation>

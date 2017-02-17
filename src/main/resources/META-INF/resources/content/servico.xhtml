@@ -7,23 +7,31 @@
       xmlns:c="http://ifrn.edu.br/findyourpro">
     <c:crud title="Servico" managedBean="#{servicoCrudMBean}">
         <ui:define name="listColumns">
-            <p:column headerText="Descrição" sortBy="#{bean.descricao}" filterBy="#{bean.descricao}" >
+            <p:column headerText="Tipo" sortBy="#{bean.tipo}" filterBy="#{bean.tipo}" >
+                <h:outputText value="#{bean.tipo}" />
+            </p:column>
+			<p:column headerText="Descrição" sortBy="#{bean.descricao}" filterBy="#{bean.descricao}" >
                 <h:outputText value="#{bean.descricao}" />
             </p:column>
         </ui:define>
         <ui:define name="detail">
             <h:panelGrid columns="2" cellpadding="3">
-                <c:text readonly="true" value="#{servicoCrudMBean.bean.descricao}" label="Descrição" />
+                <c:text readonly="true" value="#{servicoCrudMBean.bean.tipo}" label="Tipo" />
+				<c:text readonly="true" value="#{servicoCrudMBean.bean.descricao}" label="Descrição" />
+				<c:text readonly="true" value="#{servicoCrudMBean.bean.prestadores.usuario.login}" label="Prestadores" />
             </h:panelGrid>
         </ui:define>
         <ui:define name="insert">
             <h:panelGrid columns="2" cellpadding="3">
+				<c:text id="tipo" required="true" value="#{servicoCrudMBean.bean.tipo}" label="Tipo" />
                 <c:text id="descricao" required="true" value="#{servicoCrudMBean.bean.descricao}" label="Descrição" />
             </h:panelGrid>                
         </ui:define>
         <ui:define name="update">
             <h:panelGrid columns="2" cellpadding="3">
-                <c:text required="true" value="#{servicoCrudMBean.bean.descricao}" label="Descrição" />
+                <c:text id="tipo" required="true" value="#{servicoCrudMBean.bean.tipo}" label="Tipo" />
+                <c:text id="descricao" required="true" value="#{servicoCrudMBean.bean.descricao}" label="Descrição" />
+				<c:select id="prestadores" required="false" value="#{servicoCrudMBean.bean.prestadores}" label="Prestadores" options="#{prestadorDeServicoOptions}"/>
             </h:panelGrid>                
         </ui:define>
     </c:crud>

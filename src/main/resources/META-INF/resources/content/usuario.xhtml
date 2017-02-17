@@ -7,23 +7,38 @@
       xmlns:c="http://ifrn.edu.br/findyourpro">
     <c:crud title="Usuário" managedBean="#{usuarioCrudMBean}">
         <ui:define name="listColumns">
-            <p:column headerText="Nome" sortBy="#{bean.descricao}" filterBy="#{bean.descricao}" >
-                <h:outputText value="#{bean.descricao}" />
+            <p:column headerText="Nome" sortBy="#{bean.nome}" filterBy="#{bean.nome}" >
+                <h:outputText value="#{bean.nome}" />
+            </p:column>
+			<p:column headerText="Login" sortBy="#{bean.login}" filterBy="#{bean.login}" >
+                <h:outputText value="#{bean.login}" />
             </p:column>
         </ui:define>
         <ui:define name="detail">
             <h:panelGrid columns="2" cellpadding="3">
-                <c:text readonly="true" value="#{usuarioCrudMBean.bean.descricao}" label="Descrição" />
+                <c:text readonly="true" value="#{usuarioCrudMBean.bean.nome}" label="Nome" />
+				<c:text readonly="true" value="#{usuarioCrudMBean.bean.login}" label="Login" />
+				<c:text readonly="true" value="#{usuarioCrudMBean.bean.telefone}" label="Telefone" />
+				<c:text readonly="true" value="#{usuarioCrudMBean.bean.localizacao.latitude}" label="Latitude" />
+				<c:text readonly="true" value="#{usuarioCrudMBean.bean.localizacao.longitude}" label="Latitude" />
             </h:panelGrid>
         </ui:define>
         <ui:define name="insert">
             <h:panelGrid columns="2" cellpadding="3">
-                <c:text id="descricao" required="true" value="#{usuarioCrudMBean.bean.descricao}" label="Descrição" />
+                <c:text id="nome" required="true" value="#{usuarioCrudMBean.bean.nome}" label="Nome" />
+				<c:text id="login" required="true" value="#{usuarioCrudMBean.bean.login}" label="Login" />
+				<c:text id="senha" required="true" value="#{usuarioCrudMBean.bean.senha}" label="Senha" />
+				<c:text id="telefone" required="true" value="#{usuarioCrudMBean.bean.telefone}" label="Telefone" />
+				<c:select id="endereco" required="true" value="#{usuarioCrudMBean.bean.localizacao}" label="Endereco" options="#{localizacaoOptions}"/>
             </h:panelGrid>                
         </ui:define>
         <ui:define name="update">
             <h:panelGrid columns="2" cellpadding="3">
-                <c:text required="true" value="#{usuarioCrudMBean.bean.descricao}" label="Descrição" />
+				<c:text required="true" value="#{usuarioCrudMBean.bean.nome}" label="Nome" />
+				<c:text required="true" value="#{usuarioCrudMBean.bean.login}" label="Login" />
+				<c:text required="true" value="#{usuarioCrudMBean.bean.senha}" label="Senha" />
+				<c:text required="true" value="#{usuarioCrudMBean.bean.telefone}" label="Telefone" />
+				<c:select required="true" value="#{usuarioCrudMBean.bean.localizacao}" label="Endereco" options="#{localizacaoOptions}/>
             </h:panelGrid>                
         </ui:define>
     </c:crud>

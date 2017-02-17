@@ -33,7 +33,7 @@ public class LocalizacaoOptions extends Options<Localizacao, Long> {
 
 	@Override
 	public String label(Localizacao e) {
-		return "Latitude: " + e.getLatitude() + ", Longitude: " + e.getLongitude();
+		return e.getLatitude() + " - " + e.getLongitude();
 	}
 
 	@Override

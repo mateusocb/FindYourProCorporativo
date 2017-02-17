@@ -71,7 +71,7 @@
             <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
         </goals>
         <properties>
-            <exec.args>-Xdebug -Xrunjdwp:transport=dt_socket,server=n,address=${jpda.address} -Duser.country=BR -Duser.language=pt_BR -classpath %classpath br.edu.ifrn.findyourpro.FindYourProApplication</exec.args>
+            <exec.args>-Xdebug -Xrunjdwp:transport=dt_socket,server=n,address=${jpda.address} -Duser.country=BR -Duser.language=pt_BR -classpath %classpath br.edu.ifrn.findyourpro.FindYourProApplicationMain</exec.args>
             <exec.executable>java</exec.executable>
             <jpda.listen>true</jpda.listen>
         </properties>

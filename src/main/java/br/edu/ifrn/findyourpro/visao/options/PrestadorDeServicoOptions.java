@@ -19,7 +19,7 @@ package br.edu.ifrn.findyourpro.visao.options;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
 
-import br.edu.ifrn.findyourpro.dominio.Instituicao;
+import br.edu.ifrn.findyourpro.dominio.PrestadorDeServico;
 
 /**
  * Options de Instituicao.
@@ -27,17 +27,17 @@ import br.edu.ifrn.findyourpro.dominio.Instituicao;
  */
 @ViewScoped
 @Named
-public class InstituicaoOptions extends Options<Instituicao, Long> {
+public class PrestadorDeServicoOptions extends Options<PrestadorDeServico, Long> {
 
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public String label(Instituicao e) {
-		return e.getNomeFantasia();
+	public String label(PrestadorDeServico e) {
+		return e.usuario.getNome();
 	}
 
 	@Override
-	protected Object key(Instituicao e) {
+	protected Object key(PrestadorDeServico e) {
 		return e.getId();
 	}
 

@@ -7,23 +7,45 @@
       xmlns:c="http://ifrn.edu.br/findyourpro">
     <c:crud title="Avaliação" managedBean="#{avaliacaoCrudMBean}">
         <ui:define name="listColumns">
-            <p:column headerText="Descrição" sortBy="#{bean.descricao}" filterBy="#{bean.descricao}" >
-                <h:outputText value="#{bean.descricao}" />
+            <p:column headerText="Data" sortBy="#{bean.data}" >
+                <c:date pattern="dd/MM/yyyy HH:mm:ss" readonly="true" value="#{bean.data}" />
+            </p:column>
+			<p:column headerText="Nota" sortBy="#{bean.nota}" filterBy="#{bean.nota}" >
+                <h:outputText value="#{bean.nota}" />
+            </p:column>
+			<p:column headerText="Servico" sortBy="#{bean.servico.tipo}" 
+                      filterBy="#{bean.servico.id}" filterOptions="#{servicoOptions.emptyOptions}" filterMatchMode="exact">
+                <h:outputText value="#{bean.servico.tipo}" />
+            </p:column>
+			<p:column headerText="Cliente" sortBy="#{bean.cliente.login}" 
+                      filterBy="#{bean.cliente.id}" filterOptions="#{usuarioOptions.emptyOptions}" filterMatchMode="exact">
+                <h:outputText value="#{bean.cliente.login}" />
             </p:column>
         </ui:define>
         <ui:define name="detail">
             <h:panelGrid columns="2" cellpadding="3">
-                <c:text readonly="true" value="#{avaliacaoCrudMBean.bean.descricao}" label="Descrição" />
+                <c:currency readonly="true" value="#{avaliacaoCrudMBean.bean.nota}" label="Nota" />
+				<c:date readonly="true" pattern="dd/MM/yyyy HH:mm:ss" value="#{avaliacaoCrudMBean.bean.data}" label="Data" />
+				<c:text readonly="true" value="#{avaliacaoCrudMBean.bean.descricao}" label="Descrição" />
+				<c:text readonly="true" value="#{avaliacaoCrudMBean.bean.servico.tipo}" label="Tipo do Serviço" />
+				<c:text readonly="true" value="#{avaliacaoCrudMBean.bean.servico.descricao}" label="Descrição do Serviço" />
+				<c:text readonly="true" value="#{avaliacaoCrudMBean.bean.cliente.nome}" label="Cliente" />
             </h:panelGrid>
         </ui:define>
         <ui:define name="insert">
             <h:panelGrid columns="2" cellpadding="3">
-                <c:text id="descricao" required="true" value="#{avaliacaoCrudMBean.bean.descricao}" label="Descrição" />
+                <c:currency id="nota" required="true" value="#{avaliacaoCrudMBean.bean.nota}" label="Nota" />
+				<c:text id="descricao" required="true" value="#{avaliacaoCrudMBean.bean.descricao}" label="Descrição" />
+				<c:select id="servico" required="true" value="#{avaliacaoCrudMBean.bean.servico}" label="Serviço" options="#{servicoOptions}"/>
+				<c:select id="cliente" required="true" value="#{avaliacaoCrudMBean.bean.cliente}" label="Cliente" options="#{usuarioOptions}"/>
             </h:panelGrid>                
         </ui:define>
         <ui:define name="update">
             <h:panelGrid columns="2" cellpadding="3">
-                <c:text required="true" value="#{avaliacaoCrudMBean.bean.descricao}" label="Descrição" />
+                <c:currency required="true" value="#{avaliacaoCrudMBean.bean.nota}" label="Nota" />
+				<c:text required="true" value="#{avaliacaoCrudMBean.bean.descricao}" label="Descrição" />
+				<c:select required="true" value="#{avaliacaoCrudMBean.bean.servico}" label="Serviço" options="#{servicoOptions}"/>
+				<c:select required="true" value="#{avaliacaoCrudMBean.bean.cliente}" label="Cliente" options="#{usuarioOptions}"/>
             </h:panelGrid>                
         </ui:define>
     </c:crud>

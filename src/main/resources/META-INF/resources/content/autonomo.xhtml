@@ -7,24 +7,33 @@
       xmlns:c="http://ifrn.edu.br/findyourpro">
     <c:crud title="Autônomo" managedBean="#{autonomoCrudMBean}">
         <ui:define name="listColumns">
-            <p:column headerText="CPF" sortBy="#{bean.descricao}" filterBy="#{bean.descricao}" >
-                <h:outputText value="#{bean.descricao}" />
+             <p:column headerText="Nome" sortBy="#{bean.usuario.nome}" 
+                      filterBy="#{bean.usuario.id}" filterOptions="#{usuarioOptions.emptyOptions}" filterMatchMode="exact">
+                <h:outputText value="#{bean.usuario.nome}" />
+            </p:column>
+			 <p:column headerText="CPF" sortBy="#{bean.cpf}" filterBy="#{bean.cpf}" >
+                <h:outputText value="#{bean.cpf}" />
             </p:column>
         </ui:define>
         <ui:define name="detail">
             <h:panelGrid columns="2" cellpadding="3">
-                <c:text readonly="true" value="#{autonomoCrudMBean.bean.descricao}" label="Descrição" />
+				<c:text readonly="true" value="#{autonomoCrudMBean.bean.usuario.nome}" label="Nome" />
+                <c:text readonly="true" value="#{autonomoCrudMBean.bean.cpf}" label="Cpf" />
+				<c:text readonly="true" value="#{autonomoCrudMBean.bean.servicos.descricao}" label="Serviços" />
             </h:panelGrid>
         </ui:define>
         <ui:define name="insert">
             <h:panelGrid columns="2" cellpadding="3">
-                <c:text id="descricao" required="true" value="#{autonomoCrudMBean.bean.descricao}" label="Descrição" />
+                <c:select id="usuario" required="true" value="#{autonomoCrudMBean.bean.usuario}" label="Nome" options="#{usuarioOptions}" />
+				<c:text id="cpf" required="true" value="#{autonomoCrudMBean.bean.cpf}" label="Cpf" />
             </h:panelGrid>                
         </ui:define>
         <ui:define name="update">
             <h:panelGrid columns="2" cellpadding="3">
-                <c:text required="true" value="#{autonomoCrudMBean.bean.descricao}" label="Descrição" />
-            </h:panelGrid>                
+                <c:select required="true" value="#{autonomoCrudMBean.bean.usuario}" label="Nome" options="#{usuarioOptions}" />
+				<c:text required="true" value="#{autonomoCrudMBean.bean.cpf}" label="Cpf" />
+				<c:select required="true" value="#{autonomoCrudMBean.bean.servicos}" label="Serviços" options="#{servicoOptions}" />
+			</h:panelGrid>                
         </ui:define>
     </c:crud>
 </ui:composition>
