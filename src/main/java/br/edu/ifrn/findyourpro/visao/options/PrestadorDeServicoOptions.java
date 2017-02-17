@@ -33,7 +33,7 @@ public class PrestadorDeServicoOptions extends Options<PrestadorDeServico, Long>
 
 	@Override
 	public String label(PrestadorDeServico e) {
-		return e.usuario.getNome();
+		return e.getUsuario().getNome();
 	}
 
 	@Override

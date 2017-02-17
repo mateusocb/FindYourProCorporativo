@@ -67,7 +67,7 @@ public abstract class PrestadorDeServico implements Serializable, Comparable<Pre
 	@NonNull
 	@ManyToOne
 	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_prestador_usuario"))
-	public Usuario usuario;
+	private Usuario usuario;
 
 	@ManyToMany
 	@JoinTable(foreignKey = @ForeignKey(name = "fk_prestadores_servicos"), name = "prestadores_servicos", joinColumns = {
