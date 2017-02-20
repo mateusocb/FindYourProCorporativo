@@ -33,7 +33,7 @@ import lombok.ToString;
 /**
  * Autonomo entity.
  *
- * @author Johann Guerra
+ * @author Mateus Oliveira
  */
 @Getter
 @Setter
