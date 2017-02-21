@@ -20,6 +20,7 @@ import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
 
 import br.edu.ifrn.findyourpro.dominio.Autonomo;
+import br.edu.ifrn.findyourpro.dominio.Usuario;
 
 /**
  * CrudMBean de Autonomo.
@@ -33,7 +34,7 @@ public class AutonomoCrudMBean extends CrudMBean<Autonomo, Long> {
 
 	@Override
 	protected Autonomo createBean() {
-		return Autonomo.builder().build();
+		return Autonomo.builder().usuario(Usuario.builder().build()).build();
 	}
 
 }
