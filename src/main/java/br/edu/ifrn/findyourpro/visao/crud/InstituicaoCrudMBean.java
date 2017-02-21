@@ -33,7 +33,7 @@ public class InstituicaoCrudMBean extends CrudMBean<Instituicao, Long> {
 
 	@Override
 	protected Instituicao createBean() {
-		return Instituicao.builder().build();
+		return Instituicao.builder().localizacao(Localizacao.builder().build()).usuario(Usuario.builder().build()).build();
 	}
 
 }
