@@ -20,6 +20,8 @@ import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
 
 import br.edu.ifrn.findyourpro.dominio.Instituicao;
+import br.edu.ifrn.findyourpro.dominio.Localizacao;
+import br.edu.ifrn.findyourpro.dominio.Usuario;
 
 /**
  * CrudMBean de Instituicao.
