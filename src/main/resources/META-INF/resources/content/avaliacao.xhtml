@@ -35,9 +35,9 @@
         <ui:define name="insert">
             <h:panelGrid columns="2" cellpadding="3">
                 <c:currency id="notaInsert" required="true" value="#{avaliacaoCrudMBean.bean.nota}" label="Nota" />
-				<c:text id="descricao" required="true" value="#{avaliacaoCrudMBean.bean.descricao}" label="Descrição" />
-				<c:select id="servico" required="true" value="#{avaliacaoCrudMBean.bean.servico}" label="Serviço" options="#{servicoOptions}"/>
-				<c:select id="cliente" required="true" value="#{avaliacaoCrudMBean.bean.cliente}" label="Cliente" options="#{usuarioOptions}"/>
+				<c:text id="descricaoAdd" required="true" value="#{avaliacaoCrudMBean.bean.descricao}" label="Descrição" />
+				<c:select id="servicoAdd" required="true" value="#{avaliacaoCrudMBean.bean.servico}" label="Serviço" options="#{servicoOptions}"/>
+				<c:select id="clienteAdd" required="true" value="#{avaliacaoCrudMBean.bean.cliente}" label="Cliente" options="#{usuarioOptions}"/>
             </h:panelGrid>                
         </ui:define>
         <ui:define name="update">

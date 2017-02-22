@@ -19,16 +19,16 @@
 				<c:text readonly="true" value="#{instituicaoCrudMBean.bean.usuario.login}" label="Usuário" />
                 <c:text readonly="true" value="#{instituicaoCrudMBean.bean.cnpj}" label="Cnpj" />
 				<c:text readonly="true" value="#{instituicaoCrudMBean.bean.nomeFantasia}" label="Nome Fantasia" />
-				<c:text readonly="true" value="#{instituicaoCrudMBean.bean.endereco}" label="Endereco" />
+				<c:text readonly="true" value="#{instituicaoCrudMBean.bean.localizacao}" label="Endereco" />
 				<c:text readonly="true" value="#{instituicaoCrudMBean.bean.servicos}" label="Serviços" />
             </h:panelGrid>
         </ui:define>
         <ui:define name="insert">
             <h:panelGrid columns="2" cellpadding="3">
-				<c:select id="usuario" required="true" value="#{instituicaoCrudMBean.bean.usuario}" label="Usuário" options="#{usuarioOptions}" />
-				<c:text id="cpf" required="true" value="#{instituicaoCrudMBean.bean.cnpj}" label="Cnpj" />
-				<c:text id="endereco" required="true" value="#{instituicaoCrudMBean.bean.endereco}" label="Endereco" />
-				<c:text id="nomeFantasia" required="true" value="#{instituicaoCrudMBean.bean.nomeFantasia}" label="Nome Fantasia" />
+				<c:select id="usuarioAdd" required="true" value="#{instituicaoCrudMBean.bean.usuario}" label="Usuário" options="#{usuarioOptions}" />
+				<c:text id="cnpjAdd" required="true" value="#{instituicaoCrudMBean.bean.cnpj}" label="Cnpj" />
+				<c:select id="localizacaoAdd" required="true" value="#{instituicaoCrudMBean.bean.localizacao}" label="Endereco" options="#{localizacaoOptions}" />
+				<c:text id="nomeFantasiaAdd" required="true" value="#{instituicaoCrudMBean.bean.nomeFantasia}" label="Nome Fantasia" />
             </h:panelGrid>                
         </ui:define>
         <ui:define name="update">

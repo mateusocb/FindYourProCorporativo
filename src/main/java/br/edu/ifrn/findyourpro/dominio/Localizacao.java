@@ -86,12 +86,17 @@ public class Localizacao implements Serializable, Comparable<Localizacao> {
 
 	@Override
 	public int compareTo(Localizacao o) {
-		int result = this.cep.compareTo(o.cep);
-		if (result == 0) {
-			result = this.latitude.compareTo(o.latitude);
+		int result=0;
+		if(this.cep!=null){
+			result = this.cep.compareTo(o.cep);
 		}
-		if (result == 0) {
-			result = this.longitude.compareTo(o.longitude);
+		if(this.latitude!=null && this.longitude!=null){
+			if (result == 0) {
+				result = this.latitude.compareTo(o.latitude);
+			}
+			if (result == 0) {
+				result = this.longitude.compareTo(o.longitude);
+			}
 		}
 		return result;
 	}

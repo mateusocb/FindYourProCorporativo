@@ -78,6 +78,13 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 
 	@Override
 	public int compareTo(Usuario o) {
-		return this.login.compareTo(o.login);
+		int result = 0;
+		if (this.login != null) {
+			result = this.login.compareTo(o.login);
+		}
+		else {
+			result = 0;
+		}
+		return result;
 	}
 }
