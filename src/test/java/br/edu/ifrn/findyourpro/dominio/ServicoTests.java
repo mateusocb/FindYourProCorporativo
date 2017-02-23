@@ -29,37 +29,49 @@ public class ServicoTests {
 	private static final String TIPO2 = "encanador";
 	private static final String DESCRICAO1 = "luz";
 	private static final String DESCRICAO2 = "agua";
+	private static final String NOME3 = "Mateus";
+	private static final String LOGIN3 = "mateusocb";
+	private static final String SENHA3 = "mesa";
+	private static final String CPF1 = "400";
+
+	private Usuario getUsuario() {
+		return Usuario.builder().nome(NOME3).login(LOGIN3).senha(SENHA3).build();
+	}
+
+	private Autonomo autonomo() {
+		return Autonomo.builder().usuario(this.getUsuario()).cpf(CPF1).build();
+	}
 
 	@Test
 	public void tipoEDescricaoIguais() {
-		assertThat(Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build())
-				.isEqualTo(Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build());
+		assertThat(Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).prestador(this.autonomo()).build())
+				.isEqualTo(Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).prestador(this.autonomo()).build());
 	}
 
 	@Test
 	public void tipoEDescricaoDiferentes() {
-		assertThat(Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build())
-				.isNotEqualTo(Servico.builder().tipo(TIPO2).descricao(DESCRICAO2).build());
+		assertThat(Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).prestador(this.autonomo()).build())
+				.isNotEqualTo(Servico.builder().tipo(TIPO2).descricao(DESCRICAO2).prestador(this.autonomo()).build());
 	}
 
 	@Test
 	public void tipoIgualDescricaoDiferente() {
-		assertThat(Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build())
-				.isNotEqualTo(Servico.builder().tipo(TIPO1).descricao(DESCRICAO2).build());
+		assertThat(Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).prestador(this.autonomo()).build())
+				.isNotEqualTo(Servico.builder().tipo(TIPO1).descricao(DESCRICAO2).prestador(this.autonomo()).build());
 	}
 
 	@Test
 	public void descricaoIgualTipoDiferente() {
-		assertThat(Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build())
-				.isNotEqualTo(Servico.builder().tipo(TIPO2).descricao(DESCRICAO1).build());
+		assertThat(Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).prestador(this.autonomo()).build())
+				.isNotEqualTo(Servico.builder().tipo(TIPO2).descricao(DESCRICAO1).prestador(this.autonomo()).build());
 	}
 
 	@Test
 	public void compareToComTiposDiferentes() {
 		Set<Servico> servicos = new TreeSet<>();
 
-		Servico servico1 = Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build();
-		Servico servico2 = Servico.builder().tipo(TIPO2).descricao(DESCRICAO1).build();
+		Servico servico1 = Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).prestador(this.autonomo()).build();
+		Servico servico2 = Servico.builder().tipo(TIPO2).descricao(DESCRICAO1).prestador(this.autonomo()).build();
 		servicos.add(servico2);
 		servicos.add(servico1);
 
@@ -70,8 +82,8 @@ public class ServicoTests {
 	public void compareToComDescricoesDiferentes() {
 		Set<Servico> servicos = new TreeSet<>();
 
-		Servico servico1 = Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).build();
-		Servico servico2 = Servico.builder().tipo(TIPO1).descricao(DESCRICAO2).build();
+		Servico servico1 = Servico.builder().tipo(TIPO1).descricao(DESCRICAO1).prestador(this.autonomo()).build();
+		Servico servico2 = Servico.builder().tipo(TIPO1).descricao(DESCRICAO2).prestador(this.autonomo()).build();
 		servicos.add(servico1);
 		servicos.add(servico2);
 

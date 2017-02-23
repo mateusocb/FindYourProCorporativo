@@ -17,14 +17,15 @@
 package br.edu.ifrn.findyourpro.dominio;
 
 import java.io.Serializable;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 import lombok.AccessLevel;
@@ -33,8 +34,8 @@ import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
-import lombok.Singular;
 import lombok.ToString;
 
 /**
@@ -45,7 +46,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode(exclude = "prestadores")
+@EqualsAndHashCode(exclude = "prestador")
 @Builder
 @Entity
 @SequenceGenerator(sequenceName = "seq_avaliacao", name = "ID_SEQUENCE", allocationSize = 1)
@@ -60,9 +61,10 @@ public class Servico implements Serializable, Comparable<Servico> {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ID_SEQUENCE")
 	private Long id;
 
-	@Singular
-	@ManyToMany(mappedBy = "servicos")
-	private Set<PrestadorDeServico> prestadores;
+	@NonNull
+	@ManyToOne
+	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_servicos_prestador"))
+	private PrestadorDeServico prestador;
 
 	@Column(nullable = false, unique = true, name = "tipo")
 	private String tipo;

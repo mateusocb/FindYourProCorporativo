@@ -20,6 +20,8 @@ import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
 
 import br.edu.ifrn.findyourpro.dominio.Servico;
+import br.edu.ifrn.findyourpro.dominio.Autonomo;
+import br.edu.ifrn.findyourpro.dominio.Usuario;
 
 /**
  * CrudMBean de Servico.
@@ -33,7 +35,7 @@ public class ServicoCrudMBean extends CrudMBean<Servico, Long> {
 
 	@Override
 	protected Servico createBean() {
-		return Servico.builder().build();
+		return Servico.builder().prestador(Autonomo.builder().usuario(Usuario.builder().build()).build()).build();
 	}
 
 }

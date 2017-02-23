@@ -30,6 +30,7 @@ public class AvaliacaoFabrica {
 
 	private static final int NOTA1 = 10;
 	private static final int NOTA2 = 5;
+	private static final int NOTA3 = 0;
 
 	@Inject
 	private AvaliacaoRepository avaliacaoRepository;
@@ -61,5 +62,9 @@ public class AvaliacaoFabrica {
 
 	public Avaliacao nota5() {
 		return avaliacao(NOTA2, this.servicoFabrica.encanamento(), this.usuarioFabrica.johann());
+	}
+
+	public Avaliacao nota0() {
+		return avaliacao(NOTA3, this.servicoFabrica.ti(), this.usuarioFabrica.mateus());
 	}
 }

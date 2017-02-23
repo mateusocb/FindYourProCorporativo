@@ -48,7 +48,7 @@ public class ServicoServicoIT {
 	@Test
 	public void salvarUm() {
 		// executa a operacao a ser testada
-		Servico servico = this.servicoFabrica.eletrico();
+		Servico servico = this.servicoFabrica.encanamento();
 
 		// verifica o efeito da execucao da operacao a ser testada
 		assertThat(servico.getId())
@@ -58,7 +58,7 @@ public class ServicoServicoIT {
 	@Test
 	public void deletarUm() {
 		// cria o ambiente de teste
-		Servico servico = this.servicoFabrica.encanamento();
+		Servico servico = this.servicoFabrica.ti();
 
 		// executa a operacao a ser testada
 		this.servicoServico.delete(servico);

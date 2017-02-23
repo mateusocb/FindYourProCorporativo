@@ -27,6 +27,7 @@ public class AutonomoFabrica {
 
 	private static final String CPF1 = "400";
 	private static final String CPF2 = "500";
+	private static final String CPF3 = "600";
 
 	@Inject
 	private AutonomoRepository autonomoRepository;
@@ -52,5 +53,9 @@ public class AutonomoFabrica {
 
 	public Autonomo encanador() {
 		return autonomo(CPF2, this.usuarioFabrica.mateus());
+	}
+
+	public Autonomo ti() {
+		return autonomo(CPF3, this.usuarioFabrica.wendell());
 	}
 }

@@ -16,13 +16,19 @@
 
 package br.edu.ifrn.findyourpro.visao.options;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.bean.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.edu.ifrn.findyourpro.servico.AutonomoServico;
+import br.edu.ifrn.findyourpro.servico.InstituicaoServico;
 import br.edu.ifrn.findyourpro.dominio.PrestadorDeServico;
 
 /**
- * Options de Instituicao.
+ * Options de PrestadorDeServico.
  * @author Johann Guerra
  */
 @ViewScoped
@@ -30,6 +36,20 @@ import br.edu.ifrn.findyourpro.dominio.PrestadorDeServico;
 public class PrestadorDeServicoOptions extends Options<PrestadorDeServico, Long> {
 
 	private static final long serialVersionUID = 1L;
+
+	private transient AutonomoServico autonomo;
+
+	private transient InstituicaoServico instituicao;
+
+	@Inject
+	public void setAutonomoServico(AutonomoServico autonomo) {
+		this.autonomo = autonomo;
+	}
+
+	@Inject
+	public void setInstituicaoServico(InstituicaoServico instituicao) {
+		this.instituicao = instituicao;
+	}
 
 	@Override
 	public String label(PrestadorDeServico e) {
@@ -41,4 +61,13 @@ public class PrestadorDeServicoOptions extends Options<PrestadorDeServico, Long>
 		return e.getId();
 	}
 
+	@Override
+	protected List<PrestadorDeServico> fillList() {
+		List<PrestadorDeServico> result = new ArrayList<>();
+
+		result.addAll(toList(this.autonomo.findAll()));
+		result.addAll(toList(this.instituicao.findAll()));
+
+		return result;
+	}
 }

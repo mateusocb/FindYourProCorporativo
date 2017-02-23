@@ -36,10 +36,22 @@ public class AvaliacaoTests {
 	private static final int NOTA2 = 5;
 	private static final String DESCRICAO1 = "ele fez bem";
 	private static final String DESCRICAO2 = "ele fez mal";
+	private static final String NOME3 = "Mateus";
+	private static final String LOGIN3 = "mateusocb";
+	private static final String SENHA3 = "mesa";
+	private static final String CPF1 = "400";
 
-	private Avaliacao avaliacao(String tipoServico, String descricaoServico, String login, int nota, String descricao, Date data) {
+	private Usuario getUsuario() {
+		return Usuario.builder().nome(NOME3).login(LOGIN3).senha(SENHA3).build();
+	}
+
+	private Autonomo autonomo() {
+		return Autonomo.builder().usuario(this.getUsuario()).cpf(CPF1).build();
+	}
+
+	private Avaliacao avaliacao(String tipoServico, String descricaoServico, String login, int nota, String descricao, Date data, PrestadorDeServico prestador) {
 		return Avaliacao.builder()
-				.servico(Servico.builder().tipo(tipoServico).descricao(descricaoServico).build())
+				.servico(Servico.builder().tipo(tipoServico).descricao(descricaoServico).prestador(prestador).build())
 				.cliente(Usuario.builder().login(login).build())
 				.nota(nota)
 				.descricao(descricao)
@@ -51,16 +63,16 @@ public class AvaliacaoTests {
 	public void avalicaoServicoUsuarioDataIguaisDescricaoNotaDiferentes() {
 		Date hoje = new Date();
 
-		Avaliacao avaliacao1 = avaliacao(TIPO_SERVICO1, DESCRICAO_SERVICO1, LOGIN1, NOTA1, DESCRICAO1, hoje);
-		Avaliacao avaliacao2 = avaliacao(TIPO_SERVICO1, DESCRICAO_SERVICO1, LOGIN1, NOTA2, DESCRICAO2, hoje);
+		Avaliacao avaliacao1 = avaliacao(TIPO_SERVICO1, DESCRICAO_SERVICO1, LOGIN1, NOTA1, DESCRICAO1, hoje, this.autonomo());
+		Avaliacao avaliacao2 = avaliacao(TIPO_SERVICO1, DESCRICAO_SERVICO1, LOGIN1, NOTA2, DESCRICAO2, hoje, this.autonomo());
 
 		assertThat(avaliacao1).isEqualTo(avaliacao2);
 	}
 
 	@Test
 	public void avalicaoServicoUsuarioDataDiferentesDescricaoNotaIguais() {
-		Avaliacao avaliacao1 = avaliacao(TIPO_SERVICO1, DESCRICAO_SERVICO1, LOGIN1, NOTA1, DESCRICAO1, new Date());
-		Avaliacao avaliacao2 = avaliacao(TIPO_SERVICO2, DESCRICAO_SERVICO2, LOGIN2, NOTA1, DESCRICAO1, new Date());
+		Avaliacao avaliacao1 = avaliacao(TIPO_SERVICO1, DESCRICAO_SERVICO1, LOGIN1, NOTA1, DESCRICAO1, new Date(), this.autonomo());
+		Avaliacao avaliacao2 = avaliacao(TIPO_SERVICO2, DESCRICAO_SERVICO2, LOGIN2, NOTA1, DESCRICAO1, new Date(), this.autonomo());
 
 		assertThat(avaliacao1).isNotEqualTo(avaliacao2);
 	}
@@ -69,8 +81,8 @@ public class AvaliacaoTests {
 	public void compareToComDatasDiferentes() {
 		Set<Avaliacao> avaliacoes = new TreeSet<>();
 
-		Avaliacao avaliacao1 = avaliacao(TIPO_SERVICO1, DESCRICAO_SERVICO1, LOGIN1, NOTA1, DESCRICAO1, new Date());
-		Avaliacao avaliacao2 = avaliacao(TIPO_SERVICO1, DESCRICAO_SERVICO1, LOGIN1, NOTA1, DESCRICAO1, new Date());
+		Avaliacao avaliacao1 = avaliacao(TIPO_SERVICO1, DESCRICAO_SERVICO1, LOGIN1, NOTA1, DESCRICAO1, new Date(), this.autonomo());
+		Avaliacao avaliacao2 = avaliacao(TIPO_SERVICO1, DESCRICAO_SERVICO1, LOGIN1, NOTA1, DESCRICAO1, new Date(), this.autonomo());
 		avaliacoes.add(avaliacao2);
 		avaliacoes.add(avaliacao1);
 
@@ -83,8 +95,8 @@ public class AvaliacaoTests {
 
 		Set<Avaliacao> avaliacoes = new TreeSet<>();
 
-		Avaliacao avaliacao1 = avaliacao(TIPO_SERVICO1, DESCRICAO_SERVICO1, LOGIN1, NOTA1, DESCRICAO1, hoje);
-		Avaliacao avaliacao2 = avaliacao(TIPO_SERVICO2, DESCRICAO_SERVICO2, LOGIN1, NOTA1, DESCRICAO1, hoje);
+		Avaliacao avaliacao1 = avaliacao(TIPO_SERVICO1, DESCRICAO_SERVICO1, LOGIN1, NOTA1, DESCRICAO1, hoje, this.autonomo());
+		Avaliacao avaliacao2 = avaliacao(TIPO_SERVICO2, DESCRICAO_SERVICO2, LOGIN1, NOTA1, DESCRICAO1, hoje, this.autonomo());
 		avaliacoes.add(avaliacao2);
 		avaliacoes.add(avaliacao1);
 
@@ -97,8 +109,8 @@ public class AvaliacaoTests {
 
 		Set<Avaliacao> avaliacoes = new TreeSet<>();
 
-		Avaliacao avaliacao1 = avaliacao(TIPO_SERVICO1, DESCRICAO_SERVICO1, LOGIN1, NOTA1, DESCRICAO1, hoje);
-		Avaliacao avaliacao2 = avaliacao(TIPO_SERVICO1, DESCRICAO_SERVICO1, LOGIN2, NOTA1, DESCRICAO1, hoje);
+		Avaliacao avaliacao1 = avaliacao(TIPO_SERVICO1, DESCRICAO_SERVICO1, LOGIN1, NOTA1, DESCRICAO1, hoje, this.autonomo());
+		Avaliacao avaliacao2 = avaliacao(TIPO_SERVICO1, DESCRICAO_SERVICO1, LOGIN2, NOTA1, DESCRICAO1, hoje, this.autonomo());
 		avaliacoes.add(avaliacao2);
 		avaliacoes.add(avaliacao1);
 

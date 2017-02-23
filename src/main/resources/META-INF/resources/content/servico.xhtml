@@ -18,20 +18,21 @@
             <h:panelGrid columns="2" cellpadding="3">
                 <c:text readonly="true" value="#{servicoCrudMBean.bean.tipo}" label="Tipo" />
 				<c:text readonly="true" value="#{servicoCrudMBean.bean.descricao}" label="Descrição" />
-				<c:text readonly="true" value="#{servicoCrudMBean.bean.prestadores.usuario.login}" label="Prestadores" />
+				<c:text readonly="true" value="#{servicoCrudMBean.bean.prestador.usuario.login}" label="Prestadores" />
             </h:panelGrid>
         </ui:define>
         <ui:define name="insert">
             <h:panelGrid columns="2" cellpadding="3">
 				<c:text id="tipoAdd" required="true" value="#{servicoCrudMBean.bean.tipo}" label="Tipo" />
                 <c:text id="descricaoAdd" required="true" value="#{servicoCrudMBean.bean.descricao}" label="Descrição" />
+				<c:select id="prestadorAdd" required="false" value="#{servicoCrudMBean.bean.prestador}" label="Prestadores" options="#{prestadorDeServicoOptions}"/>
             </h:panelGrid>                
         </ui:define>
         <ui:define name="update">
             <h:panelGrid columns="2" cellpadding="3">
                 <c:text id="tipo" required="true" value="#{servicoCrudMBean.bean.tipo}" label="Tipo" />
                 <c:text id="descricao" required="true" value="#{servicoCrudMBean.bean.descricao}" label="Descrição" />
-				<c:select id="prestadores" required="false" value="#{servicoCrudMBean.bean.prestadores}" label="Prestadores" options="#{prestadorDeServicoOptions}"/>
+				<c:select id="prestador" required="false" value="#{servicoCrudMBean.bean.prestador}" label="Prestadores" options="#{prestadorDeServicoOptions}"/>
             </h:panelGrid>                
         </ui:define>
     </c:crud>

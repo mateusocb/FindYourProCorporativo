@@ -27,9 +27,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 import lombok.AccessLevel;
@@ -39,6 +38,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
+import lombok.Singular;
 import lombok.ToString;
 
 /**
@@ -69,10 +69,8 @@ public abstract class PrestadorDeServico implements Serializable, Comparable<Pre
 	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_prestador_usuario"))
 	private Usuario usuario;
 
-	@ManyToMany
-	@JoinTable(foreignKey = @ForeignKey(name = "fk_prestadores_servicos"), name = "prestadores_servicos", joinColumns = {
-		@JoinColumn(foreignKey = @ForeignKey(name = "fk_prestadores_servicos_prestador_id"), name = "prestadorDeServico_id")}, inverseJoinColumns = {
-		@JoinColumn(name = "servico_id", foreignKey = @ForeignKey(name = "fk_servicos_prestadores_servico_id"))})
+	@Singular
+	@OneToMany(mappedBy = "prestador")
 	private Set<Servico> servicos;
 
 	@Override

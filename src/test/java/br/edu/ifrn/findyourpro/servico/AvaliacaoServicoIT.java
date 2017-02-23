@@ -58,7 +58,7 @@ public class AvaliacaoServicoIT {
 	@Test
 	public void deletarUm() {
 		// cria o ambiente de teste
-		Avaliacao avaliacao = this.avaliacaoFabrica.nota5();
+		Avaliacao avaliacao = this.avaliacaoFabrica.nota0();
 
 		// executa a operacao a ser testada
 		this.avaliacaoServico.delete(avaliacao);
